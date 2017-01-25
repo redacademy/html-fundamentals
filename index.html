@@ -1,0 +1,581 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Javascript Fundamentals</title>
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight, .highlight .w {
+  color: #f8f8f2;
+  background-color: #272822;
+}
+.highlight .err {
+  color: #272822;
+  background-color: #f92672;
+}
+.highlight .c, .highlight .cd, .highlight .cm, .highlight .c1, .highlight .cs {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #f4bf75;
+}
+.highlight .nt {
+  color: #f4bf75;
+}
+.highlight .o, .highlight .ow {
+  color: #f8f8f2;
+}
+.highlight .p, .highlight .pi {
+  color: #f8f8f2;
+}
+.highlight .gi {
+  color: #a6e22e;
+}
+.highlight .gd {
+  color: #f92672;
+}
+.highlight .gh {
+  color: #66d9ef;
+  background-color: #272822;
+  font-weight: bold;
+}
+.highlight .k, .highlight .kn, .highlight .kp, .highlight .kr, .highlight .kv {
+  color: #ae81ff;
+}
+.highlight .kc {
+  color: #fd971f;
+}
+.highlight .kt {
+  color: #fd971f;
+}
+.highlight .kd {
+  color: #fd971f;
+}
+.highlight .s, .highlight .sb, .highlight .sc, .highlight .sd, .highlight .s2, .highlight .sh, .highlight .sx, .highlight .s1 {
+  color: #a6e22e;
+}
+.highlight .sr {
+  color: #a1efe4;
+}
+.highlight .si {
+  color: #cc6633;
+}
+.highlight .se {
+  color: #cc6633;
+}
+.highlight .nn {
+  color: #f4bf75;
+}
+.highlight .nc {
+  color: #f4bf75;
+}
+.highlight .no {
+  color: #f4bf75;
+}
+.highlight .na {
+  color: #66d9ef;
+}
+.highlight .m, .highlight .mf, .highlight .mh, .highlight .mi, .highlight .il, .highlight .mo, .highlight .mb, .highlight .mx {
+  color: #a6e22e;
+}
+.highlight .ss {
+  color: #a6e22e;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;javascript&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <img src="images/logo.png" alt="Logo" />
+        <div class="lang-selector">
+              <a href="#" data-language-name="javascript">javascript</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="javascript-fundamentals">Javascript Fundamentals</h1>
+
+<p>At RED, we ask you to learn Javascript <em>very</em> fast.
+It is impossible to get all of the ideas, patterns, and syntax right away.
+This resource is here to help.</p>
+
+<p>Just like the <em>Programming with JavaScript</em> lesson, this resource will start with the absolute basics and
+use them to build more and more complex structures.</p>
+
+          <h1 id="primitives">Primitives</h1>
+
+<p>When we think <em>primitive</em>, we think of cavemen or apes, of stone-headed arrows and huts made of mud.</p>
+
+<p>Primitive things are <em>simple</em>, and it&rsquo;s no different in Javascript.</p>
+
+<p>Primitives are also the building blocks of the data we organize and operate on
+in an application (written in Javascript or any other language).
+Every structure we use (variables, functions, arrays and objects)
+exist to operate on primitive values, often in great number.</p>
+
+<h2 id="type-of">Type Of</h2>
+<pre class="highlight javascript"><code><span class="k">typeof</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// 'number'</span>
+<span class="k">typeof</span> <span class="mf">0.01</span><span class="p">;</span> <span class="c1">// 'number'</span>
+<span class="k">typeof</span> <span class="s1">'abcde'</span><span class="p">;</span> <span class="c1">// 'string'</span>
+</code></pre>
+<p>We can see the type of any primitive or variable by using the <code class="prettyprint">typeof</code> operator.</p>
+
+<h2 id="booleans">Booleans</h2>
+<pre class="highlight javascript"><code>
+<span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">areRetired</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+
+<span class="k">typeof</span> <span class="nx">isPresent</span><span class="p">;</span> <span class="c1">// 'boolean'</span>
+
+<span class="c1">// Note: Both true and false are 'reserve words' in Javascript.</span>
+<span class="c1">// Invalid, true is a 'reserved' word</span>
+<span class="kd">var</span> <span class="kc">true</span> <span class="o">=</span> <span class="s1">'value'</span><span class="p">;</span>
+</code></pre>
+<p>Boolean is a fancy word for something that is either <strong>true</strong> or <strong>false</strong>.</p>
+
+<h3 id="naming">Naming</h3>
+
+<p>Booleans are generally named as a question.
+For example, <code class="prettyprint">isValid</code> would be a boolean that represented whether something was valid,
+while <code class="prettyprint">areHappy</code> could be a boolean representing the mood of a group of people.</p>
+
+<p>Prefer <code class="prettyprint">isValid</code> to <code class="prettyprint">valid</code>, and <code class="prettyprint">areHappy</code> to <code class="prettyprint">happy</code>.
+The exception to this is when you have a boolean representing success, in that case, prefer <code class="prettyprint">success</code> to <code class="prettyprint">wasSuccessful</code>.</p>
+
+<h2 id="numbers">Numbers</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// &lt;- integer</span>
+<span class="kd">var</span> <span class="nx">raceTime</span> <span class="o">=</span> <span class="mf">10.01</span><span class="p">;</span> <span class="c1">// &lt;- float (AKA Decimal)</span>
+<span class="kd">var</span> <span class="nx">winnipegTemp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">;</span> <span class="c1">// &lt;- negative Numbers</span>
+<span class="kd">var</span> <span class="nx">cookiesInJar</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &lt;- zero</span>
+
+<span class="k">typeof</span> <span class="nx">age</span><span class="p">;</span> <span class="c1">// 'number'</span>
+<span class="k">typeof</span> <span class="nx">raceTime</span><span class="p">;</span> <span class="c1">// 'number'</span>
+<span class="k">typeof</span> <span class="nx">winnipegTemp</span><span class="p">;</span> <span class="c1">// 'number'</span>
+<span class="k">typeof</span> <span class="nx">cookiesInJar</span><span class="p">;</span> <span class="c1">// 'number'</span>
+</code></pre>
+<p>The Javascript number primitive is very flexible.
+It can be positive or negative, and either integers (AKA whole numbers) or floating point numbers (AKA decimal numbers or floats).</p>
+
+<p>NOTE: In many languages, numbers are represented by two types of primitives: Integer &amp; Float. Can you think of a reason why?</p>
+
+<h3 id="naming">Naming</h3>
+
+<p>Numbers should be named to describe what they represent in the simplest terms.
+Avoid names like <code class="prettyprint">num</code> whenever possible.</p>
+
+<h2 id="strings">Strings</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">silence</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span> <span class="c1">// &lt;- Empty string</span>
+<span class="kd">var</span> <span class="nx">quiet</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">// &lt;- Empty string using double quotes</span>
+<span class="kd">var</span> <span class="nx">africanAnimal</span> <span class="o">=</span> <span class="s1">'Hippopotamus'</span><span class="p">;</span> <span class="c1">// &lt;- One word</span>
+<span class="kd">var</span> <span class="nx">banalSentense</span> <span class="o">=</span> <span class="s2">"I can be as long as anyone decides to make me..."</span><span class="p">;</span> <span class="c1">// Long strings</span>
+
+<span class="k">typeof</span> <span class="nx">quiet</span><span class="p">;</span> <span class="c1">// 'string'</span>
+</code></pre>
+<p>A string is just a sequence of characters. It can be empty or as long as you&rsquo;d like.</p>
+
+<p>You can declare strings with either single or double quotes.
+Javascript doesn&rsquo;t care, but your colleagues will, so be sure you&rsquo;re consistent.</p>
+
+<h3 id="naming">Naming</h3>
+
+<p>Like numbers, use a string&rsquo;s name to describe its contents.</p>
+
+<h3 id="note-beware-39-smart-quotes-39">NOTE: Beware &lsquo;smart quotes&rsquo;</h3>
+
+<p>They are the curvy cousin of single and double quotes, but Javascript and HTML don&rsquo;t understand them.</p>
+
+<p><code class="prettyprint">“You’re smart!”</code> should be <code class="prettyprint">&quot;You&#39;re smart!&quot;</code></p>
+
+<h2 id="null">Null</h2>
+<pre class="highlight javascript"><code><span class="c1">// User is logged in</span>
+<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">getUserInformation</span><span class="p">();</span>
+
+<span class="c1">// User logs out</span>
+<span class="nx">user</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+</code></pre>
+<p>Sometimes we need to express that something contains nothing.
+For example, when a user logs out, we might set <code class="prettyprint">user = null</code>.
+Similarly if someone visits a payment page but have not yet entered any payment information,
+we might set <code class="prettyprint">creditCard = null</code>.</p>
+
+<h2 id="undefined">Undefined</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
+<span class="c1">// undefined</span>
+</code></pre>
+<p><code class="prettyprint">undefined</code> is similar to <code class="prettyprint">null</code> in that it represents a value that has not been set.
+The difference is that <code class="prettyprint">null</code> values are set <strong>on purpose</strong>, while <code class="prettyprint">undefined</code> values are generally either an error case or simply not defined.</p>
+
+          <h1 id="variables">Variables</h1>
+<pre class="highlight javascript"><code><span class="c1">// Primitives</span>
+<span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Bruce'</span><span class="p">;</span>
+
+<span class="c1">// Functions</span>
+<span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">'Bruce'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Function return value</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+
+<span class="c1">// Another variable</span>
+<span class="kd">var</span> <span class="nx">house</span> <span class="o">=</span> <span class="s1">'home'</span>
+<span class="kd">var</span> <span class="nx">home</span> <span class="o">=</span> <span class="nx">house</span><span class="p">;</span>
+
+<span class="c1">// Arrays</span>
+<span class="kd">var</span> <span class="nx">listOfNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Alex'</span><span class="p">,</span> <span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Maria'</span><span class="p">];</span>
+
+<span class="c1">// Objects</span>
+<span class="kd">var</span> <span class="nx">door</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">colour</span><span class="p">:</span> <span class="s1">'white'</span><span class="p">,</span>
+  <span class="na">handle</span><span class="p">:</span> <span class="s1">'traditional'</span><span class="p">,</span>
+  <span class="na">hasLock</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
+  <span class="na">hasKeyhole</span><span class="p">:</span> <span class="kc">true</span>
+<span class="p">}</span>
+</code></pre>
+<p>Variables help our application reference the data stored in our computer&rsquo;s memory (RAM).</p>
+
+<p>Without variables, trying to access that data would be like trying to grab a helium balloon without a string.
+It&rsquo;s there, but you can&rsquo;t get to it!</p>
+
+<p>In Javascript pretty much anything can be assigned to a variable. Some examples:</p>
+
+<ul>
+<li>Any primitive</li>
+<li>Functions</li>
+<li>Function return value</li>
+<li>Another variable</li>
+<li>Arrays</li>
+<li>Objects</li>
+</ul>
+
+<h3 id="const-and-let"><code class="prettyprint">const</code> and <code class="prettyprint">let</code></h3>
+
+<p>The newest version of Javascript also allows us to use <code class="prettyprint">let</code> and <code class="prettyprint">const</code> to define variables.
+Their use is outside the purvue of this resource, but research is encouraged!</p>
+
+          <h1 id="functions">Functions</h1>
+<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hello!'</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Functions are <strong>things that do things</strong>.</p>
+
+<p>They take zero or more inputs, and optionally provide a return value.</p>
+
+<h3 id="parameters-amp-arguments">Parameters &amp; Arguments</h3>
+
+<p><code class="prettyprint">function</code> parameters are also known as <em>arguments</em>.
+We can say &ldquo;how many parameters does the function have?&rdquo;, and we can also say &ldquo;how many arguments does it take?&rdquo;.</p>
+
+<p>The <code class="prettyprint">printAverage</code> function, for example, both &ldquo;has 2 parameters&rdquo; and &ldquo;takes 2 arguments&rdquo;.</p>
+
+<h2 id="structure">Structure</h2>
+<pre class="highlight javascript"><code><span class="c1">// No parameters</span>
+<span class="kd">function</span> <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="s1">'Peter'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// One parameter</span>
+<span class="kd">function</span> <span class="nx">askNicely</span><span class="p">(</span><span class="nx">question</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Note: when used on two strings,</span>
+  <span class="c1">// the + operator combines them into one string</span>
+  <span class="k">return</span> <span class="nx">question</span> <span class="o">+</span> <span class="s1">', please.'</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Two parameters, no return value</span>
+<span class="kd">function</span> <span class="nx">printAverage</span><span class="p">(</span><span class="nx">firstValue</span><span class="p">,</span> <span class="nx">secondValue</span><span class="p">)</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">average</span> <span class="o">=</span> <span class="p">(</span><span class="nx">firstValue</span> <span class="o">+</span> <span class="nx">secondValue</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">average</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre>
+<p>Functions are defined using <code class="prettyprint">function</code> keyword, followed by a name, followed by brackets containing zero or more parameters.</p>
+
+<p>The body of the function is wrapped by curly braces(<code class="prettyprint">{ }</code>).</p>
+
+<p>If the function returns something, use the <code class="prettyprint">return</code> keyword followed by whatever is being returned.
+Functions that don&rsquo;t explicitly <code class="prettyprint">return</code> anything will return <code class="prettyprint">undefined</code>.</p>
+
+<h2 id="naming">Naming</h2>
+<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">visitSchool</span><span class="p">(</span><span class="nx">schoolName</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">debatePolitics</span><span class="p">(</span><span class="nx">era</span><span class="p">,</span> <span class="nx">country</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<span class="kd">function</span> <span class="nx">reboot</span><span class="p">(</span><span class="nx">windowsMachine</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+</code></pre>
+<p>Functions <strong>do things</strong>, so they should be named using verbs.</p>
+
+<p>Put the verb first, followed by the subject (if necessary).</p>
+
+<h2 id="assignment">Assignment</h2>
+<pre class="highlight javascript"><code>
+<span class="c1">// Note that we use function(sentence)</span>
+<span class="c1">// and not function name(sentence)</span>
+<span class="kd">var</span> <span class="nx">shoutSentence</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sentence</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sentence</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+<span class="p">}</span>
+</code></pre>
+<p>Functions can be assigned to variables.
+When we do this, we generally omit the string in between the <code class="prettyprint">function</code> keyword
+and the brackets that wrap the function arguments.</p>
+
+<p>These types of functions are called <strong>anonymous</strong>.</p>
+
+<h2 id="invoking-calling">Invoking/Calling</h2>
+<pre class="highlight javascript"><code><span class="c1">// Call a function</span>
+<span class="nx">sayHello</span><span class="p">();</span>
+
+<span class="c1">// Pass parameters</span>
+<span class="nx">printAverage</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
+
+<span class="c1">// Store return value in a variable</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+
+<span class="c1">// Pass in an anonymous function as the second argument</span>
+<span class="nx">operateOnArray</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// Operate on array</span>
+<span class="p">});</span>
+
+<span class="c1">// We can also store the function in a variable, then pass it in</span>
+<span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="nx">operateOnArray</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">printValue</span><span class="p">);</span>
+</code></pre>
+<p>When we <em>call</em> or <em>invoke</em> a function, simply use the function name followed by brackets containing any arguments seperated by commas.</p>
+
+<p>Note that when we call/invoke a function we say we &ldquo;pass in arguments&rdquo;.
+When we call <code class="prettyprint">printAverage</code>, for example, we pass in <code class="prettyprint">10</code> and <code class="prettyprint">100</code> as arguments.</p>
+
+<p>We can also pass anonymous functions <em>as arguments</em>, just like we can assign them to variables.</p>
+
+          <h1 id="arrays">Arrays</h1>
+<pre class="highlight javascript"><code><span class="c1">// Array of strings</span>
+<span class="kd">var</span> <span class="nx">synonymsForSmall</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'petite'</span><span class="p">,</span> <span class="s1">'diminutive'</span><span class="p">,</span> <span class="s1">'tiny'</span><span class="p">];</span>
+
+<span class="c1">// Array of objects</span>
+<span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="mi">1223344</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'John Smith'</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="mi">3334442</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'Michael Jones'</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="mi">4455433</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'Beatrice Potter'</span>
+  <span class="p">}</span>
+<span class="p">];</span>
+</code></pre>
+<p>Arrays are a way of <strong>organizing data</strong> into a <strong>list</strong>. We refer to the items in an array as <strong>elements</strong>.</p>
+
+<p>Examples:</p>
+
+<ul>
+<li>A thesaurus might define a word&rsquo;s synonyms as an array of words</li>
+<li>A school might define its population as an array of students</li>
+</ul>
+
+<p>Just like anything can be assigned to a variable, anything can be added to an array.
+However, arrays only make sense if they hold many elements of the same type.</p>
+
+<p>An array that contained 30 cars and 10 ducks, for example, wouldn&rsquo;t make sense.</p>
+
+<h2 id="indexes">Indexes</h2>
+
+<p>Each element in an array has an <strong>index</strong>.
+The first element added to an array has an index of 0, and we count up from there.
+Because we count from zero, was can always say that the highest index in the array is <em>one less</em> than the length of the array.</p>
+
+<p>Example:</p>
+
+<p>If we have array containing three numbers: <code class="prettyprint">[100, 200, 300]</code>,
+the index of 100 would be 0, 200 would be 1, and 300 would be 2.
+The length of the array is 3.</p>
+
+<h2 id="defining">Defining</h2>
+<pre class="highlight javascript"><code><span class="c1">// Array of numbers</span>
+<span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">444</span><span class="p">];</span>
+
+<span class="c1">// Array of variables</span>
+<span class="kd">var</span> <span class="nx">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">three</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+
+<span class="kd">var</span> <span class="nx">variableNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">,</span> <span class="nx">three</span><span class="p">];</span>
+
+<span class="c1">// Array of objects</span>
+<span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="mi">1223344</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'John Smith'</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="mi">3334442</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'Michael Jones'</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="na">id</span><span class="p">:</span> <span class="mi">4455433</span><span class="p">,</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'Beatrice Potter'</span>
+  <span class="p">}</span>
+<span class="p">];</span>
+
+<span class="c1">// Array of arrays</span>
+<span class="kd">var</span> <span class="nx">graph</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">],</span>
+  <span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="c1">// This final comma is optional</span>
+<span class="p">];</span>
+
+<span class="c1">// Array of functions</span>
+<span class="kd">var</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="p">},</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">},</span>
+  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="p">},</span>
+<span class="p">]</span>
+</code></pre>
+<p>Arrays can be defined in several ways, but most common is to use square brackets with elements separated by commas.</p>
+
+<h2 id="accessing-elements">Accessing Elements</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="s1">'Elizabeth'</span><span class="p">];</span>
+
+<span class="nx">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// 'Jack'</span>
+<span class="nx">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// 'David'</span>
+<span class="nx">names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1">// 'Elizabeth'</span>
+</code></pre>
+<p>Elements can be accessed directly if you know the element&rsquo;s index.</p>
+
+<h2 id="iterating">Iterating</h2>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="s1">'Elizabeth'</span><span class="p">];</span>
+
+<span class="c1">// Javascript forEach function</span>
+<span class="c1">// Using an anonymous function (conventional use)</span>
+<span class="nx">names</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
+<span class="p">});</span>
+
+<span class="c1">// Using jQuery's each</span>
+<span class="c1">// Note that the anonymous function we pass in</span>
+<span class="c1">// has both an index and value parameter</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+  <span class="c1">// operate on li element</span>
+<span class="p">});</span>
+</code></pre>
+<p>Iterating over an array means accessing every element in the array.</p>
+
+<p>We can do this manually with constructs like <code class="prettyprint">for</code> loops, but we generally use functions to make our lives easier.
+These iterating functions access the <em>value</em> of each element in our array and give it back as a parameter in a function that we pass in.</p>
+
+          <h1 id="objects">Objects</h1>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'Jonathon'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">42</span>
+<span class="p">}</span>
+</code></pre>
+<p>Like arrays, objects are used to <strong>organize data</strong>.
+The difference is that objects use <strong>named properties</strong> instead of indexes to access elements.</p>
+
+<p><strong>Named properties</strong> operate very similarly to variables, except that they exist only within the context of their object.</p>
+
+<p>When we talk about named properties of objects, we call them &lsquo;properties&rsquo;, &#39;keys&rsquo;, or &#39;attributes&rsquo;.
+They are part of the <strong>key/value pair</strong> paradigm.</p>
+
+<p>In the <code class="prettyprint">myObject</code> example, <code class="prettyprint">name</code> and <code class="prettyprint">age</code> are <strong>keys</strong>, and <code class="prettyprint">&#39;Jonathon&#39;</code> and <code class="prettyprint">42</code> are their respective values.</p>
+
+<h2 id="defining">Defining</h2>
+<pre class="highlight javascript"><code><span class="c1">// A simple object</span>
+<span class="kd">var</span> <span class="nx">student</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">name</span><span class="p">:</span> <span class="s1">'James Taylor'</span><span class="p">,</span>
+  <span class="na">age</span><span class="p">:</span> <span class="mi">67</span>
+<span class="p">}</span>
+
+<span class="c1">// A complex object containing Arrays and other objects</span>
+<span class="kd">var</span> <span class="nx">redClass</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="na">size</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
+  <span class="na">subject</span><span class="p">:</span> <span class="s1">'Web Development'</span><span class="p">,</span>
+  <span class="na">students</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="mi">1223344</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s1">'John Smith'</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="mi">3334442</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s1">'Michael Jones'</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="na">id</span><span class="p">:</span> <span class="mi">4455433</span><span class="p">,</span>
+      <span class="na">name</span><span class="p">:</span> <span class="s1">'Beatrice Potter'</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="na">campus</span><span class="p">:</span> <span class="p">{</span>
+    <span class="na">name</span><span class="p">:</span> <span class="s1">'Vancouver'</span><span class="p">,</span>
+    <span class="na">age</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="na">instructors</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Ben'</span><span class="p">,</span> <span class="s1">'Rose'</span><span class="p">,</span> <span class="s1">'Mack'</span><span class="p">],</span>
+    <span class="na">kitchen</span><span class="p">:</span> <span class="p">{</span>
+      <span class="na">hasBeer</span><span class="p">:</span> <span class="kc">true</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">};</span>
+</code></pre>
+<p>Objects are defined using curly braces. Object properties take the form of key/value pairs separated by a colon and ended with a comma.</p>
+
+<p>Like variables and arrays, anything can be assigned to an object property, even functions!</p>
+
+<p>To create more complex data structures, we can assign arrays and objects to properties, creating a nested (hierarchical) shape.</p>
+
+<p>Note: when we assign a <strong>function</strong> to an object, we call is a <strong>method</strong></p>
+
+<h2 id="accessing-properties">Accessing Properties</h2>
+<pre class="highlight javascript"><code><span class="c1">// Using the redClass object above</span>
+
+<span class="c1">// Access the redClass size</span>
+<span class="nx">redClass</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span> <span class="c1">// 22</span>
+
+<span class="c1">// Access the name of the first student in the student array</span>
+<span class="nx">redClass</span><span class="p">.</span><span class="nx">students</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// John Smith</span>
+
+<span class="c1">// Figure out if the kitchen has beer</span>
+<span class="nx">redClass</span><span class="p">.</span><span class="nx">campus</span><span class="p">.</span><span class="nx">kitchen</span><span class="p">.</span><span class="nx">hasBeer</span><span class="p">;</span> <span class="c1">// true</span>
+
+<span class="c1">// The above is equivalent to:</span>
+<span class="kd">var</span> <span class="nx">campus</span> <span class="o">=</span> <span class="nx">redClass</span><span class="p">.</span><span class="nx">campus</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">kitchen</span> <span class="o">=</span> <span class="nx">redClass</span><span class="p">.</span><span class="nx">kitchen</span><span class="p">;</span>
+<span class="nx">kitchen</span><span class="p">.</span><span class="nx">hasBeer</span><span class="p">;</span> <span class="c1">// true</span>
+</code></pre>
+<p>Object properties are accessed using dot notation. Simply place a <code class="prettyprint">.</code> between the object name and the property name.
+For nested objects, you can chain your dots.</p>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="javascript">javascript</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
