@@ -127,6 +127,8 @@ use them to build more and more complex structures.</p>
 
           <h1 id="primitives">Primitives</h1>
 
+<p>The word <strong>primitives</strong> is short for <strong>primitive data types</strong>.</p>
+
 <p>When we think <em>primitive</em>, we think of cavemen or apes, of stone-headed arrows and huts made of mud.</p>
 
 <p>Primitive things are <em>simple</em>, and it&rsquo;s no different in Javascript.</p>
@@ -219,7 +221,7 @@ Javascript doesn&rsquo;t care, but your colleagues will, so be sure you&rsquo;re
 <p>Sometimes we need to express that something contains nothing.
 For example, when a user logs out, we might set <code class="prettyprint">user = null</code>.
 Similarly if someone visits a payment page but have not yet entered any payment information,
-we might set <code class="prettyprint">creditCard = null</code>.</p>
+we might initially set <code class="prettyprint">creditCard = null</code>.</p>
 
 <h2 id="undefined">Undefined</h2>
 <pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
@@ -322,8 +324,11 @@ We can say &ldquo;how many parameters does the function have?&rdquo;, and we can
 Functions that don&rsquo;t explicitly <code class="prettyprint">return</code> anything will return <code class="prettyprint">undefined</code>.</p>
 
 <h2 id="naming">Naming</h2>
-<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">visitSchool</span><span class="p">(</span><span class="nx">schoolName</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+<pre class="highlight javascript"><code><span class="c1">// named with a verb followed by a subject</span>
+<span class="kd">function</span> <span class="nx">visitSchool</span><span class="p">(</span><span class="nx">schoolName</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 <span class="kd">function</span> <span class="nx">debatePolitics</span><span class="p">(</span><span class="nx">era</span><span class="p">,</span> <span class="nx">country</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
+
+<span class="c1">// named with just a verb</span>
 <span class="kd">function</span> <span class="nx">reboot</span><span class="p">(</span><span class="nx">windowsMachine</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
 </code></pre>
 <p>Functions <strong>do things</strong>, so they should be named using verbs.</p>
@@ -332,8 +337,14 @@ Functions that don&rsquo;t explicitly <code class="prettyprint">return</code> an
 
 <h2 id="assignment">Assignment</h2>
 <pre class="highlight javascript"><code>
+<span class="c1">// An anonymous function</span>
 <span class="c1">// Note that we use function(sentence)</span>
 <span class="c1">// and not function name(sentence)</span>
+<span class="kd">function</span><span class="p">(</span><span class="nx">sentence</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sentence</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
+<span class="p">}</span>
+
+<span class="c1">// Assigning an anonymous function to a variable</span>
 <span class="kd">var</span> <span class="nx">shoutSentence</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sentence</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sentence</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
 <span class="p">}</span>
@@ -354,15 +365,20 @@ and the brackets that wrap the function arguments.</p>
 <span class="c1">// Store return value in a variable</span>
 <span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
 
-<span class="c1">// Pass in an anonymous function as the second argument</span>
-<span class="nx">operateOnArray</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
+<span class="c1">// Calll operateOnArray</span>
+<span class="c1">// Pass array as first argument</span>
+<span class="c1">// Pass an anonymous function as the second argument</span>
+<span class="nx">operateOnArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
   <span class="c1">// Operate on array</span>
 <span class="p">});</span>
 
-<span class="c1">// We can also store the function in a variable, then pass it in</span>
+<span class="c1">// We can also store the array and function in variables, then pass them in</span>
+<span class="kd">var</span> <span class="nx">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+
 <span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
   <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
 <span class="p">}</span>
+
 <span class="nx">operateOnArray</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">printValue</span><span class="p">);</span>
 </code></pre>
 <p>When we <em>call</em> or <em>invoke</em> a function, simply use the function name followed by brackets containing any arguments seperated by commas.</p>
@@ -371,6 +387,44 @@ and the brackets that wrap the function arguments.</p>
 When we call <code class="prettyprint">printAverage</code>, for example, we pass in <code class="prettyprint">10</code> and <code class="prettyprint">100</code> as arguments.</p>
 
 <p>We can also pass anonymous functions <em>as arguments</em>, just like we can assign them to variables.</p>
+
+          <h1 id="scope">Scope</h1>
+<pre class="highlight javascript"><code><span class="c1">// Simple scope</span>
+<span class="c1">// myVariable can be accessed easily</span>
+<span class="kd">var</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variable</span><span class="p">);</span> <span class="c1">// true</span>
+
+<span class="c1">// if/else has no affect on scope</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">variable</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="c1">// myVariable can be accessed within a function written in the same scope</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="c1">// myVariable can be accessed here</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="p">}</span>
+
+<span class="c1">// If we define a variable inside a function,</span>
+<span class="c1">// it is not within the scope of any outer functions</span>
+<span class="kd">function</span> <span class="nx">myOtherFunction</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">var</span> <span class="nx">myInnerVariable</span> <span class="o">=</span> <span class="s1">'I am a variable'</span><span class="p">;</span>
+
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myInnerVariable</span><span class="p">);</span> <span class="c1">// I am a variable</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span> <span class="c1">// true</span>
+<span class="p">}</span>
+
+<span class="c1">// Can't access myInnerVariable here</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myInnerVariable</span><span class="p">);</span> <span class="c1">// undefined</span>
+</code></pre>
+<p><strong>Scope</strong> is a word used to describe where something is available in our code.
+A variable can be accesed if it is <em>within the scope</em> of whatever code is currently executing.</p>
+
+<p>In Javascript, scope is determined at the <code class="prettyprint">function</code> level, working from the outside it.</p>
+
+<p>It&rsquo;s much easier to learn from the examples to the right.</p>
 
           <h1 id="arrays">Arrays</h1>
 <pre class="highlight javascript"><code><span class="c1">// Array of strings</span>
@@ -410,11 +464,11 @@ However, arrays only make sense if they hold many elements of the same type.</p>
 
 <p>Each element in an array has an <strong>index</strong>.
 The first element added to an array has an index of 0, and we count up from there.
-Because we count from zero, was can always say that the highest index in the array is <em>one less</em> than the length of the array.</p>
+Because we count from zero, we can always say that the highest index in the array is <em>one less</em> than the length of the array.</p>
 
 <p>Example:</p>
 
-<p>If we have array containing three numbers: <code class="prettyprint">[100, 200, 300]</code>,
+<p>If we have an array containing three numbers: <code class="prettyprint">[100, 200, 300]</code>,
 the index of 100 would be 0, 200 would be 1, and 300 would be 2.
 The length of the array is 3.</p>
 
