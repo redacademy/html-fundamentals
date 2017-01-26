@@ -37,11 +37,11 @@ An array that contained 30 cars and 10 ducks, for example, wouldn't make sense.
 
 Each element in an array has an __index__.
 The first element added to an array has an index of 0, and we count up from there.
-Because we count from zero, was can always say that the highest index in the array is _one less_ than the length of the array.
+Because we count from zero, we can always say that the highest index in the array is _one less_ than the length of the array.
 
 Example:
 
-If we have array containing three numbers: `[100, 200, 300]`,
+If we have an array containing three numbers: `[100, 200, 300]`,
 the index of 100 would be 0, 200 would be 1, and 300 would be 2.
 The length of the array is 3.
 

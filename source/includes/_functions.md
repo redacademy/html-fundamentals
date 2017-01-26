@@ -51,8 +51,11 @@ Functions that don't explicitly `return` anything will return `undefined`.
 ## Naming
 
 ```javascript
+// named with a verb followed by a subject
 function visitSchool(schoolName) { ... }
 function debatePolitics(era, country) { ... }
+
+// named with just a verb
 function reboot(windowsMachine) { ... }
 ```
 
@@ -64,8 +67,14 @@ Put the verb first, followed by the subject (if necessary).
 
 ```javascript
 
+// An anonymous function
 // Note that we use function(sentence)
 // and not function name(sentence)
+function(sentence) {
+  console.log(sentence.toUpperCase());
+}
+
+// Assigning an anonymous function to a variable
 var shoutSentence = function(sentence) {
   console.log(sentence.toUpperCase());
 }
@@ -89,15 +98,20 @@ printAverage(10, 100);
 // Store return value in a variable
 var name = getName();
 
-// Pass in an anonymous function as the second argument
-operateOnArray(array, function(index, value) {
+// Calll operateOnArray
+// Pass array as first argument
+// Pass an anonymous function as the second argument
+operateOnArray([1, 2, 3], function(index, value) {
   // Operate on array
 });
 
-// We can also store the function in a variable, then pass it in
+// We can also store the array and function in variables, then pass them in
+var myList = [1, 2, 3];
+
 function printValue(index, value) {
   console.log(value);
 }
+
 operateOnArray(array, printValue);
 ```
 

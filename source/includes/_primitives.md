@@ -1,5 +1,7 @@
 # Primitives
 
+The word **primitives** is short for **primitive data types**.
+
 When we think _primitive_, we think of cavemen or apes, of stone-headed arrows and huts made of mud.
 
 Primitive things are _simple_, and it's no different in Javascript.
@@ -110,7 +112,7 @@ user = null;
 Sometimes we need to express that something contains nothing.
 For example, when a user logs out, we might set `user = null`.
 Similarly if someone visits a payment page but have not yet entered any payment information,
-we might set `creditCard = null`.
+we might initially set `creditCard = null`.
 
 ## Undefined
 

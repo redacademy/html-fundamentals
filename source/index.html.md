@@ -11,6 +11,7 @@ includes:
   - primitives
   - variables
   - functions
+  - scope
   - arrays
   - objects
 
