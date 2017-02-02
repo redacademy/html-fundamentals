@@ -14,6 +14,7 @@ includes:
   - scope
   - arrays
   - objects
+  - contributing
 
 search: true
 ---
