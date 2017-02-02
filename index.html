@@ -624,6 +624,78 @@ They are part of the <strong>key/value pair</strong> paradigm.</p>
 <p>Object properties are accessed using dot notation. Simply place a <code class="prettyprint">.</code> between the object name and the property name.
 For nested objects, you can chain your dots.</p>
 
+          <h1 id="contributing">Contributing</h1>
+
+<p>This is a living document.
+It is up to all of us to make sure the information it contains is relevant and useful!</p>
+
+<p>We encourage you to contribute, whether you&rsquo;re fixing a typo or adding a new section.</p>
+
+<h2 id="fork-the-repository"><strong>Fork</strong> the repository</h2>
+
+<p><em>Forking</em> is essentially making a copy of a repository.
+You can then make changes to it for your own purposes.</p>
+
+<p>The source code for this website can be found <a href="https://github.com/redacademy/js-fundamentals">on Github</a>.</p>
+
+<p>When you visit a repository page on Github, the <strong>fork</strong> button can be found in the top-right corner.
+Click it and choose your account as the place to &ldquo;fork to&rdquo;.</p>
+
+<h2 id="clone-your-fork-of-the-repo"><strong>Clone</strong> your fork of the repo</h2>
+<pre class="highlight shell"><code><span class="nb">cd </span>an/appropriate/directory
+git clone git@github.com:YOUR_USERNAME/js-fundamentals.git
+<span class="nb">cd </span>js-fundamentals
+</code></pre>
+<p><em>Cloning</em> is the term we use for copying code from Github to our local filesystem.</p>
+
+<p>The <code class="prettyprint">clone</code> command automatically creates a new folder with the repository name; in this case, <code class="prettyprint">js-fundamentals</code>.</p>
+
+<h2 id="install-dependencies-and-serve"><strong>Install dependencies</strong> and <strong>serve</strong></h2>
+<pre class="highlight shell"><code><span class="c"># Install:</span>
+gem install bundler
+bundle install
+
+<span class="c"># Serve</span>
+middleman server
+</code></pre>
+<ul>
+<li><strong>Gem</strong> is a ruby package manager.</li>
+<li><strong>Bundle</strong> allows us to install packages based on a list found in a file called <code class="prettyprint">Gemfile</code></li>
+<li><strong>Middleman</strong> is a lightweight server that runs locally.</li>
+</ul>
+
+<p>Once your server is running, you can visit a local version of the site at <a href="http://localhost:4567/">localhost:4567</a>!</p>
+
+<h2 id="contribute">Contribute!</h2>
+
+<p>This site is written entirely in <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a>.
+Each section has its own file in <code class="prettyprint">/source/includes</code>. You can update any existing files.</p>
+
+<p>If you&rsquo;d like to add a new section:</p>
+
+<ul>
+<li>Create a new file in /source/includes</li>
+<li>Make sure the filename starts with an underscore, ie <code class="prettyprint">_section</code></li>
+<li>Tell the site to render the new section by adding it to the <code class="prettyprint">includes</code> list in <code class="prettyprint">index.html.md</code>.</li>
+</ul>
+
+<h2 id="make-a-pull-request">Make a pull request</h2>
+<pre class="highlight shell"><code>git add --all
+git commit -m <span class="s2">"Made a contribution!"</span>
+git push origin master
+</code></pre>
+<p>Once you&rsquo;ve finished your work, commit your changes and push them to your local repository.</p>
+
+<p>Next:</p>
+
+<ul>
+<li>Visit your fork on Github - https://github.com/YOUR_USERNAME/js-fundamentals</li>
+<li>Click the <strong>Pull Requests</strong> tab</li>
+<li>Click the <strong>New Pull Request</strong> button</li>
+<li>It should automatically compare your fork with the master repository</li>
+<li>Submit your pull request!</li>
+</ul>
+
       </div>
       <div class="dark-box">
           <div class="lang-selector">
