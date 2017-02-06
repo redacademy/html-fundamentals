@@ -74,3 +74,21 @@ Next:
 - It should automatically compare your fork with the master repository
 - Submit your pull request!
 
+## Merge conflicts
+
+You may end up with merge conflicts with the base fork.
+To resolve, you'll first have to add the base fork to your local git.
+
+```sh
+git remote add upstream https://github.com/redacademy/js-fundamentals.git
+```
+
+Then you can get the most recent code from the base for and merge it into your local code.
+
+```sh
+git fetch upstream
+git merge upstream master
+```
+
+Then you can resolve your conflicts and push back to your fork.
+Pull requests update automatically when new commits are pushed.
