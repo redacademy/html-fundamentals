@@ -1,15 +1,24 @@
-## coercion
-Change data type from one type to another. 
+## Coercion
+Where there are different data types, one data type will be changed to an 'equivalent value '
+of the other data type
 
-Type coercion means that when the operands of an operator are different types, one of them will be converted to an "equivalent" value of the other operand's type
+Use strict equality operators (=== !==) to ensure the values converted are equaled
+to avoid causing error
+
 
 ```javascript
 1 +'2'; //12
 
-if (0 && null) ; //true
+if (0 && null) {
+    console.log('we will not get here')
+} ; //false
 
-if (1 === '1') ; //false 
+if (1 === '1') {
+    console.log('we will not get here')
+} ; //false 
 
-if (null || (4 === 1 + 3) ); // true
+if (null || (4 === 1 + 3) ){
+    console.log('we will get here');  
+}; // true
  
 

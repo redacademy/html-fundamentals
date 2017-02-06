@@ -3,31 +3,44 @@ A truthy value is a value that translates to true when evaluated in a Boolean co
  
 
 ```javascript
-if (true)
-if ({})
-if ([])
-if (42)
-if ("foo")
-if (new Date())
-if (-42)
-if (3.14)
-if (-3.14)
-if (Infinity)
-if (-Infinity)
+if (true) {
+    console.log('we will get here');
+}
+if ({}) {
+    console.log('we will get here');
+}
+ 
+ 
+if (-42) {
+    console.log('we will get here');
+}
+ 
+ 
+if (-Infinity) {
+    console.log('we will get here');
+}
 
  
 // undefined
 ```
-## Falsyness
-A falsy value is a value that translates to false when evaluated in a Boolean context.
+## Falsiness
+Using Boolean with the value of true or false, a falsyness will always be evaluated to false
 
 
 ```javascript
-if (false)
-if (null)
-if (undefined)
-if (0)
-if (NaN)
-if ('')
-if ("")
-if (document.all) [1]
+if (false) {
+    console.log('we will not get here');
+}
+
+if (null){
+    console.log('we will not get here');
+}
+
+if (undefined){
+    console.log('we will not get here');
+}
+
+if (0){
+    console.log('we will not get here');
+}
+ 
