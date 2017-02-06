@@ -696,6 +696,121 @@ git push origin master
 <li>Submit your pull request!</li>
 </ul>
 
+          <h1 id="this">This</h1>
+<pre class="highlight javascript"><code>
+    <span class="c1">// Here, 'this' refers to the function named Student. </span>
+
+    <span class="c1">// We can access properties/methods of</span>
+    <span class="c1">// 'this' using dot notation. Below, 'this.name'</span>
+    <span class="c1">// refers to the name property of the function named 'Student'.</span>
+
+    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
+        <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Barrymore"</span><span class="p">,</span>
+        <span class="na">showFullName</span><span class="p">:</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+
+    <span class="c1">// Since the showFullName function is a method of the </span>
+    <span class="c1">// 'person' object, its 'this' is exactly the same!</span>
+
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">""</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">);</span>
+
+            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">""</span> <span class="o">+</span> <span class="nx">person</span><span class="p">.</span><span class="nx">lastName</span><span class="p">);</span>
+
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+    <span class="nx">person</span><span class="p">.</span><span class="nx">showFullName</span><span class="p">();</span>
+
+</code></pre>
+<p>In javascript, &lsquo;this&rsquo; is used to reference the thing (object/function) in which it is being used.</p>
+
+<p>We can use &#39;this&rsquo; in the same way we use pronouns like &#39;He&rsquo; or &#39;She&rsquo; in English. E.G:</p>
+
+<p>&rsquo;<strong>John</strong> ate fish &amp; chips for lunch. <strong>He</strong> likes fish &amp; chips&rsquo;.</p>
+
+<p>In the above example, both &#39;John&rsquo; and &#39;He&rsquo; refer to the same person. We first use the name &#39;John&rsquo; to let the reader
+know who we are referring to. However, once the person we are referring to has been established in the first sentence, we can simply use &#39;He&rsquo; as a reference for John in subsequent sentences.</p>
+
+<p>When used within a function or object, &#39;this&rsquo; refers to the function or object itself. (See example in sidebar).</p>
+
+<h2 id="in-global-scope">In Global Scope</h2>
+<pre class="highlight javascript"><code>
+    <span class="c1">// Below is an example of 'this' being used to refer to the global object.</span>
+
+    <span class="c1">// In a browser, the global object is the window.</span>
+
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// logs the window object.</span>
+</code></pre>
+<p>When used in the global scope (i.e. not within a function or object), &#39;this&rsquo; refers to the global object.</p>
+
+<p>In a browser, the global object is the window. </p>
+
+          <h2 id="truthiness">Truthiness</h2>
+
+<p>A truthy value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they are defined as falsy (i.e., except for false, 0, &ldquo;&rdquo;, null, undefined, and NaN).</p>
+<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">({})</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="kc">Infinity</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+<span class="c1">// undefined</span>
+</code></pre>
+<h2 id="falsiness">Falsiness</h2>
+
+<p>Using Boolean with the value of true or false, a falsyness will always be evaluated to false</p>
+<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">null</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">undefined</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">0</span><span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
+<span class="p">}</span>
+
+</code></pre>
+          <h2 id="coercion">Coercion</h2>
+
+<p>Where there are different data types, one data type will be changed to an &lsquo;equivalent value &rsquo;
+of the other data type</p>
+
+<p>Use strict equality operators (=== !==) to ensure the values converted are equaled
+to avoid causing error</p>
+<pre class="highlight javascript"><code><span class="mi">1</span> <span class="o">+</span><span class="s1">'2'</span><span class="p">;</span> <span class="c1">//12</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">)</span>
+<span class="p">}</span> <span class="p">;</span> <span class="c1">//false</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">===</span> <span class="s1">'1'</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">)</span>
+<span class="p">}</span> <span class="p">;</span> <span class="c1">//false </span>
+
+<span class="k">if</span> <span class="p">(</span><span class="kc">null</span> <span class="o">||</span> <span class="p">(</span><span class="mi">4</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="p">){</span>
+    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>  
+<span class="p">};</span> <span class="c1">// true</span>
+
+
+</code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
