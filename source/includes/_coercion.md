@@ -1,4 +1,4 @@
-## Coercion
+# Coercion
 Where there are different data types, one data type will be changed to an 'equivalent value '
 of the other data type
 
