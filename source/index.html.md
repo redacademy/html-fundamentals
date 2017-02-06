@@ -15,6 +15,8 @@ includes:
   - arrays
   - objects
   - contributing
+  - truthiness
+  - coercion
 
 search: true
 ---

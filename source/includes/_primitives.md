@@ -125,3 +125,4 @@ console.log(name);
 
 `undefined` is similar to `null` in that it represents a value that has not been set.
 The difference is that `null` values are set __on purpose__, while `undefined` values are generally either an error case or simply not defined.
+
