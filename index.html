@@ -696,6 +696,19 @@ git push origin master
 <li>Submit your pull request!</li>
 </ul>
 
+<h2 id="merge-conflicts">Merge conflicts</h2>
+
+<p>You may end up with merge conflicts with the base fork.
+To resolve, you&rsquo;ll first have to add the base fork to your local git.</p>
+<pre class="highlight shell"><code>git remote add upstream https://github.com/redacademy/js-fundamentals.git
+</code></pre>
+<p>Then you can get the most recent code from the base for and merge it into your local code.</p>
+<pre class="highlight shell"><code>git fetch upstream
+git merge upstream master
+</code></pre>
+<p>Then you can resolve your conflicts and push back to your fork.
+Pull requests update automatically when new commits are pushed.</p>
+
           <h1 id="this">This</h1>
 <pre class="highlight javascript"><code>
     <span class="c1">// Here, 'this' refers to the function named Student. </span>
