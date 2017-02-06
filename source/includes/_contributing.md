@@ -36,7 +36,7 @@ gem install bundler
 bundle install
 
 # Serve
-middleman server
+bundle exec middleman server
 ```
 
 - __Gem__ is a ruby package manager.
