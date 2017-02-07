@@ -16,6 +16,9 @@ includes:
   - objects
   - contributing
   - hoist
+  - this
+  - truthiness
+  - coercion
 
 search: true
 ---
