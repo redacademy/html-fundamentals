@@ -87,7 +87,7 @@ Then you can get the most recent code from the base for and merge it into your l
 
 ```sh
 git fetch upstream
-git merge upstream master
+git merge upstream/master
 ```
 
 Then you can resolve your conflicts and push back to your fork.
