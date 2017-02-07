@@ -16,6 +16,7 @@ includes:
   - objects
   - contributing
   - values
+  - hoist
   - this
   - truthiness
   - coercion
