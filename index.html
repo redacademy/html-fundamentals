@@ -709,6 +709,141 @@ git merge upstream/master
 <p>Then you can resolve your conflicts and push back to your fork.
 Pull requests update automatically when new commits are pushed.</p>
 
+          <h2 id="passing-by-value-vs-passing-by-reference">Passing by Value vs. Passing by Reference</h2>
+
+<h1 id="passing-by-reference">Passing by Reference</h1>
+
+<p>You&rsquo;re in an university class, given a topic on <strong>Passing by Reference</strong>. Your
+whole class is really struggling with the paper and everyone is complaining,
+wanting a topic change. But unfortunately, Professor JavaScript sees the value
+in the topic and it will never change. So consider this, even though the
+topic, or value, never changes, the papers handed in can have different
+contents but the topic never changes. In essence, now when talking about
+<strong>Passing by Reference</strong> all those papers can be handed in no matter the
+attributes of those papers.</p>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">paperTopic</span> <span class="o">=</span> <span class="p">[</span><span class="nx">paper1</span><span class="p">,</span> <span class="nx">paper2</span><span class="p">,</span> <span class="nx">paper3</span><span class="p">,</span> <span class="nx">paper4</span><span class="p">];</span>
+</code></pre>
+<p><em>Values</em> in this example array can be changed,
+but the topic, or value of the array,
+never changes.</p>
+
+<h1 id="passing-by-value">Passing by Value</h1>
+
+<p>Conversely, Professor JavaScript doesn&rsquo;t like you. He makes you handwrite
+your paper, but also, for some ridiculous reason, wants you to hand in a
+photocopy. After handing it in you frame your handwritten paper, so it never
+changes. Meanwhile, Professor JavaScript figuratively shits on your paper, changing
+it forever, but he shall never touch your handwritten &lsquo;masterpiece&rsquo;.</p>
+<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">handwritten</span> <span class="o">=</span> <span class="s1">'yourHandwrittenPaper'</span>
+
+<span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">changePaper</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">handwritten</span> <span class="o">+</span> <span class="s1">'is 49%'</span>
+<span class="p">})</span>
+</code></pre>
+<p>This example function will return <em>&#39;yourHandwrittenPaper is 49%&rsquo;</em>. This shows that
+<strong>handwritten</strong> can be called in a function, but never changes the original value of
+the handwritten variable.</p>
+
+<h1 id="pure-function">Pure function</h1>
+
+<p><strong>Pure function</strong> is a pipe that doesn&rsquo;t leak, and in essence cannot be mutated.
+Some of the benefits of using a pure function clarity,
+cleanliness, the job is done more percisely. Moreover, it will not unintentionally
+effect scripts running in other parts of your code.</p>
+
+          <h1 id="hoist">Hoist</h1>
+<pre class="highlight javascript"><code><span class="mi">1</span><span class="p">.</span>
+<span class="c1">//Before Hoist</span>
+<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Warren"</span><span class="p">;</span>
+
+<span class="c1">//After Hoist</span>
+<span class="kd">var</span> <span class="nx">name</span><span class="p">;</span> <span class="c1">// This is the declaration</span>
+<span class="nx">name</span> <span class="o">=</span> <span class="s2">"Warren"</span><span class="p">;</span> <span class="c1">//This is the assignment</span>
+
+
+</code></pre><pre class="highlight javascript"><code> <span class="mi">2</span><span class="p">.</span>
+<span class="nx">__Before</span> <span class="nx">Hoist__</span>
+
+<span class="kd">var</span> <span class="nx">parkour</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span>
+<span class="kd">var</span> <span class="nx">iDeclareBankruptcy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span>
+
+
+<span class="nx">__After__Hoist__</span>
+<span class="kd">function</span> <span class="nx">parkour</span><span class="p">(){}</span> <span class="c1">//Hoisted function declaration</span>
+<span class="kd">function</span> <span class="nx">iDeclareBankruptcy</span><span class="p">(){}</span> <span class="c1">//Hoisted function declaration</span>
+
+<span class="kd">var</span> <span class="nx">parkour</span><span class="p">;</span> <span class="c1">//Hoisted variable declaration</span>
+<span class="kd">var</span> <span class="nx">iDeclareBankruptcy</span><span class="p">;</span> <span class="c1">//Hoisted variable declaration</span>
+
+<span class="nx">parkour</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span> <span class="c1">// Function expression</span>
+<span class="nx">iDeclareBankruptcy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span> <span class="c1">// Function expression</span>
+
+</code></pre>
+<p><strong>1.</strong></p>
+
+<ul>
+<li><p>Hoisting is when JavaScript <strong>splits</strong> the variable and function declarations and moves them to the top of the container scope
+, while retaining the same order.</p></li>
+<li><p>Hoisting is made to organize code and used for the browser to understand
+function and variable declarations before page is fully loaded.</p></li>
+</ul>
+<pre class="highlight javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">returnTwo</span><span class="p">());</span>
+
+<span class="kd">function</span> <span class="nx">returnTwo</span><span class="p">(){</span> <span class="c1">//all this WILL be moved to the top</span>
+  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+<span class="kd">var</span> <span class="nx">returnTwo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="c1">//only var returnTwo; will be moved to the top, the assignment stays right here</span>
+  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
+<span class="p">}</span>
+
+
+
+</code></pre>
+<ul>
+<li>Functions are hoisted first, before variables.</li>
+</ul>
+
+<p><strong>2.</strong></p>
+
+<ul>
+<li><p>Functions have higher declaration priorities over variable declarations.</p></li>
+<li><p>Function declarations are moved at the very top of the scope and variable declarations are placed after.</p></li>
+</ul>
+
+<h2 id="declarations-within-conditionals-if-else">Declarations within conditionals (if/else)</h2>
+<pre class="highlight javascript"><code>
+<span class="nx">__Before</span> <span class="nx">Hoist__</span>
+<span class="kd">var</span> <span class="nx">oranges</span> <span class="o">=</span> <span class="s2">"fruit"</span><span class="p">;</span>
+
+<span class="kd">function</span> <span class="nx">eatFood</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">oranges</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">eatFood</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="nx">__After__Hoist__</span>
+
+<span class="kd">function</span> <span class="nx">eatFood</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span>  <span class="c1">// Brought function declaration on top of variable declaration because priority.</span>
+    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
+<span class="p">}</span>
+<span class="kd">var</span> <span class="nx">oranges</span> <span class="o">=</span> <span class="s2">"fruit"</span><span class="p">;</span>
+
+
+<span class="k">if</span> <span class="p">(</span><span class="nx">oranges</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// If statement still reminds at bottom of function</span>
+  <span class="nx">eatFood</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
+<span class="p">}</span>
+
+
+
+<span class="o">*</span> <span class="nx">Whether</span> <span class="nx">before</span> <span class="nx">or</span> <span class="nx">after</span> <span class="nx">hoist</span><span class="p">,</span> <span class="nx">the</span> <span class="s1">'if'</span> <span class="nx">statement</span> <span class="nx">remains</span>
+<span class="nx">untouched</span> <span class="nx">and</span> <span class="nx">all</span> <span class="nx">declarations</span> <span class="nx">are</span> <span class="nx">still</span> <span class="nx">accessible</span><span class="p">.</span>
+
+
+
+</code></pre>
           <h1 id="this">This</h1>
 <pre class="highlight javascript"><code>
     <span class="c1">// Here, 'this' refers to the function named Student. </span>
