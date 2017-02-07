@@ -15,6 +15,7 @@ includes:
   - arrays
   - objects
   - contributing
+  - values
   - hoist
   - this
   - truthiness
