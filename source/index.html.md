@@ -16,6 +16,10 @@ includes:
   - objects
   - contributing
   - values
+  - this
+  - truthiness
+  - coercion
+
 search: true
 ---
 
