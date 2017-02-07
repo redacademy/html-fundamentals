@@ -12,11 +12,11 @@ attributes of those papers.
 
 ```js
 var paperTopic = [paper1, paper2, paper3, paper4];
+```
 
-Values in the array can be changed,
+_Values_ in this example array can be changed,
 but the topic, or value of the array,
 never changes.
-```
 
 #Passing by Value
 
@@ -27,19 +27,16 @@ changes. Meanwhile, Professor JavaScript figuratively shits on your paper, chang
 it forever, but he shall never touch your handwritten 'masterpiece'.
 
 ```js
-var handwritten = yourHandwrittenPaper
+var handwritten = 'yourHandwrittenPaper'
 
-(fn (changePaper) {
-  return handwritten + '49%'
-}
-'yourHandwrittenPaper 49%'
-)
-
-Handwritten can be called and changed
-in a function, but the original
-value of the handwritten variable
-never changes
+(function (changePaper) {
+  return handwritten + 'is 49%'
+})
 ```
+
+This example function will return _'yourHandwrittenPaper is 49%'_. This shows that
+__handwritten__ can be called in a function, but never changes the original value of
+the handwritten variable.
 
 #Pure function
 
