@@ -6,10 +6,16 @@ project-folder
 ```
 
 An HTML project starts very simply.
-
 All you need is a directory (AKA folder) that contains a file called `index.html`.
 
 To view it in your browser, simply open `index.html`. HTML files will open in your default browser.
+
+__Some Best Practices:__
+
+- Use lowercase names for directories and files
+- Don't use spaces in your file names, instead use hyphens or underscores to separate words
+- Don't use special characters in your file names
+- Choose logical and descriptive names for files and folders
 
 ## Adding CSS files
 
