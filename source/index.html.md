@@ -1,34 +1,24 @@
 ---
-title: Javascript Fundamentals
+title: HTML Fundamentals
 
 language_tabs:
-  - javascript
+  - html
 
 toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
-  - primitives
-  - variables
-  - functions
-  - scope
-  - arrays
-  - objects
+  - document
+  - elements
+  - attributes
+  - structure
   - contributing
-  - values
-  - hoist
-  - this
-  - truthiness
-  - coercion
 
 search: true
 ---
 
-# Javascript Fundamentals
+# HTML Fundamentals
 
-At RED, we ask you to learn Javascript _very_ fast.
+At RED, we ask you to learn HTML _very_ fast.
 It is impossible to get all of the ideas, patterns, and syntax right away.
 This resource is here to help.
-
-Just like the _Programming with JavaScript_ lesson, this resource will start with the absolute basics and
-use them to build more and more complex structures.
