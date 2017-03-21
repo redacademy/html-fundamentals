@@ -580,6 +580,119 @@ There are many more, but this should get you started!</p>
 </tbody></table>
 
           <h1 id="attributes">Attributes</h1>
+<pre class="highlight html"><code><span class="c">&lt;!-- This tag has a 'class' attribute, its value is 'header' --&gt;</span>
+<span class="nt">&lt;h1</span> <span class="na">class=</span><span class="s">"header"</span><span class="nt">&gt;</span>Header Text<span class="nt">&lt;/h1&gt;</span>
+
+<span class="c">&lt;!-- This tag has two attributes, 'src' and 'alt' --&gt;</span>
+<span class="c">&lt;!-- Their values are 'http://placehold.it/150x150' and 'First image' --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"First image"</span><span class="nt">&gt;</span>
+</code></pre>
+<p>All HTML elements can have <strong>attributes</strong>, which essentially provide <em>additional information</em> about the element.</p>
+
+<p>The term <strong>attribute</strong> is synonymous with the term <strong>property</strong>.</p>
+
+<h2 id="usage">Usage</h2>
+<pre class="highlight html"><code><span class="c">&lt;!-- Bad --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">CLASS=</span><span class="s">'my-image'</span> <span class="na">src =</span><span class="err"> </span><span class="s">'http://placehold.it/150x150'</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- Good --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"my-image"</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- Bad --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">id=</span><span class="s">"img-12345"</span> <span class="na">class=</span><span class="s">"my-image"</span> <span class="na">width=</span><span class="s">"500"</span> <span class="na">height=</span><span class="s">"300"</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"This is a placeholder image"</span><span class="nt">&gt;</span>
+
+<span class="c">&lt;!-- Good --&gt;</span>
+<span class="nt">&lt;img</span>
+  <span class="na">id=</span><span class="s">"img-12345"</span>
+  <span class="na">class=</span><span class="s">"my-image"</span>
+  <span class="na">width=</span><span class="s">"500"</span>
+  <span class="na">height=</span><span class="s">"300"</span>
+  <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span>
+  <span class="na">alt=</span><span class="s">"This is a placeholder image"</span><span class="nt">&gt;</span>
+</code></pre>
+<p>When defining attributes, the convention is to write attribute names in lowercase and to wrap their values in double quotes.
+Don&rsquo;t leave spaces on either side of the <code class="prettyprint">=</code>.</p>
+
+<p>If you have more than three attributes, put them on separate lines.</p>
+
+<h2 id="key-value-pairs">Key/Value Pairs</h2>
+<pre class="highlight html"><code><span class="c">&lt;!-- Example 1 --&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"home-description"</span> <span class="na">class=</span><span class="s">"descripion"</span><span class="nt">&gt;</span>
+  This is the description of my home page.
+<span class="nt">&lt;/p&gt;</span>
+
+<span class="c">&lt;!-- Example 2 --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"placeholder"</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"First image"</span><span class="nt">&gt;</span>
+</code></pre>
+<p><strong>Attributes</strong> are always defined in the opening tag, and are an example of what we call <strong>key/value pairs</strong>.</p>
+
+<p>In Example 1 to the right, the <code class="prettyprint">p</code> element has <strong>two attributes</strong>, each <strong>paired</strong> with a value.</p>
+
+<table><thead>
+<tr>
+<th>Key (Attribute Name)</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">id</code></td>
+<td>home-description</td>
+</tr>
+<tr>
+<td><code class="prettyprint">class</code></td>
+<td>description</td>
+</tr>
+</tbody></table>
+
+<p>In Example 2 to the right, the <code class="prettyprint">img</code> element has <strong>three attributes</strong>, each <strong>paired</strong> with a value.</p>
+
+<table><thead>
+<tr>
+<th>Key (Attribute Name)</th>
+<th>Value</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code class="prettyprint">class</code></td>
+<td>placeholder</td>
+</tr>
+<tr>
+<td><code class="prettyprint">src</code></td>
+<td>http://placehold.it/150x150</td>
+</tr>
+<tr>
+<td><code class="prettyprint">alt</code></td>
+<td>First image</td>
+</tr>
+</tbody></table>
+
+<h2 id="ids-and-classes">IDs and Classes</h2>
+<pre class="highlight html"><code><span class="c">&lt;!-- Bad --&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"my-description"</span><span class="nt">&gt;</span>Description one<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"my-description"</span><span class="nt">&gt;</span>Description two<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">id=</span><span class="s">"my-description"</span><span class="nt">&gt;</span>Description three<span class="nt">&lt;/p&gt;</span>
+
+<span class="c">&lt;!-- Good --&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"my-description"</span><span class="nt">&gt;</span>Description one<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"my-description"</span><span class="nt">&gt;</span>Description two<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p</span> <span class="na">class=</span><span class="s">"my-description"</span><span class="nt">&gt;</span>Description three<span class="nt">&lt;/p&gt;</span>
+
+<span class="c">&lt;!-- Better --&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"my-descriptions"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Description one<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Description two<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Description three<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+</code></pre>
+<p>The <code class="prettyprint">id</code> and <code class="prettyprint">class</code> attributes are very important in HTML, because they&rsquo;re what CSS uses to apply rules to specific elements.</p>
+
+<p>Each document should only have one instance of any given <code class="prettyprint">id</code>, but it can have as many instances of a given <code class="prettyprint">class</code> as you&rsquo;d like.</p>
+
+<p>A helpful tool for understanding IDs and Classes is to consider the analogy of a student. A student can be taking multiple classes at a time, but they only have one ID.</p>
+
+<p>In software, generality is good, so prefer using <code class="prettyprint">class</code> over <code class="prettyprint">id</code> whenever possible.</p>
+
+<p><strong>NOTE</strong>: When naming classes and IDs, use <code class="prettyprint">kebab-case</code> (lowercase with hyphens)</p>
 
           <h1 id="understanding-html-structure">Understanding HTML Structure</h1>
 
@@ -663,7 +776,7 @@ Click it and choose your account as the place to &ldquo;fork to&rdquo;.</p>
 
 <h2 id="clone-your-fork-of-the-repo"><strong>Clone</strong> your fork of the repo</h2>
 <pre class="highlight shell"><code><span class="nb">cd </span>an/appropriate/directory
-git clone git@github.com:YOUR_USERNAME/js-fundamentals.git
+git clone git@github.com:YOUR_USERNAME/html-fundamentals.git
 <span class="nb">cd </span>js-fundamentals
 </code></pre>
 <p><em>Cloning</em> is the term we use for copying code from Github to our local filesystem.</p>
