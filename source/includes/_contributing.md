@@ -19,7 +19,7 @@ Click it and choose your account as the place to "fork to".
 
 ```sh
 cd an/appropriate/directory
-git clone git@github.com:YOUR_USERNAME/js-fundamentals.git
+git clone git@github.com:YOUR_USERNAME/html-fundamentals.git
 cd js-fundamentals
 ```
 
