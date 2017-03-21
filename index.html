@@ -757,6 +757,96 @@ In fact, this is how CSS and JavaScript understand HTML!</p>
 
 <p>Elements <em>own</em> or <em>contain</em> <strong>all of their descendants</strong>.</p>
 
+          <h1 id="setting-up-a-project">Setting Up a Project</h1>
+<pre class="highlight plaintext"><code>project-folder
+  - index.html
+</code></pre>
+<p>An HTML project starts very simply.</p>
+
+<p>All you need is a directory (AKA folder) that contains a file called <code class="prettyprint">index.html</code>.</p>
+
+<p>To view it in your browser, simply open <code class="prettyprint">index.html</code>. HTML files will open in your default browser.</p>
+
+<h2 id="adding-css-files">Adding CSS files</h2>
+<pre class="highlight plaintext"><code>project-folder
+  - css
+    - main.css
+    - reset.css
+  - index.html
+</code></pre><pre class="highlight html"><code><span class="c">&lt;!-- index.html --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="c">&lt;!-- Linking CSS --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/reset.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+<p>We generally group css files in their own directory. Let&rsquo;s call it <code class="prettyprint">css</code>.</p>
+
+<h2 id="adding-javascript-files">Adding JavaScript files</h2>
+
+<p>Like CSS files, we group JavaScript files in their own directory. Let&rsquo;s call it <code class="prettyprint">js</code>.</p>
+<pre class="highlight plaintext"><code>project-folder
+  - css
+    - main.css
+    - reset.css
+  - js
+    - app.js
+    - slideshow.js
+  - index.html
+</code></pre><pre class="highlight html"><code><span class="c">&lt;!-- index.html --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/reset.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- Linking Javascript --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/slideshow.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+<h2 id="adding-assets-images-etc">Adding Assets (Images, etc)</h2>
+
+<p>It&rsquo;s good practice to store assets in their own folder as well.
+Let&rsquo;s call it <code class="prettyprint">assets</code>.</p>
+
+<p>Within <code class="prettyprint">assets</code>, we&rsquo;ll make a folder called images.</p>
+<pre class="highlight plaintext"><code>project-folder
+  - css
+    - main.css
+    - reset.css
+  - js
+    - app.js
+    - slideshow.js
+  - assets
+    - images
+      - car.jpg
+      - truck.png
+  - index.html
+</code></pre><pre class="highlight html"><code><span class="c">&lt;!-- index.html --&gt;</span>
+<span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/reset.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"css/main.css"</span><span class="nt">&gt;</span>
+
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/slideshow.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"js/app.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+
+  <span class="nt">&lt;body&gt;</span>
+    <span class="c">&lt;!-- Using Assets --&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/images/car.jpg"</span> <span class="na">alt=</span><span class="s">"This is a car"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"assets/images/truck.png"</span> <span class="na">alt=</span><span class="s">"This is a truck"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
           <h1 id="contributing">Contributing</h1>
 
 <p>This is a living document.
