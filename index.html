@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>Javascript Fundamentals</title>
+    <title>HTML Fundamentals</title>
     <link rel="shortcut icon" href="images/favicon.ico">
     <style>
       .highlight table td { padding: 5px; }
@@ -91,7 +91,7 @@
       <script src="javascripts/all.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;javascript&quot;]">
+  <body class="index" data-languages="[&quot;html&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -101,7 +101,7 @@
     <div class="tocify-wrapper">
       <img src="images/logo.png" alt="Logo" />
         <div class="lang-selector">
-              <a href="#" data-language-name="javascript">javascript</a>
+              <a href="#" data-language-name="html">html</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -116,513 +116,533 @@
     <div class="page-wrapper">
       <div class="dark-box"></div>
       <div class="content">
-        <h1 id="javascript-fundamentals">Javascript Fundamentals</h1>
+        <h1 id="html-fundamentals">HTML Fundamentals</h1>
 
-<p>At RED, we ask you to learn Javascript <em>very</em> fast.
+<p>At RED, we ask you to learn HTML <em>very</em> fast.
 It is impossible to get all of the ideas, patterns, and syntax right away.
 This resource is here to help.</p>
 
-<p>Just like the <em>Programming with JavaScript</em> lesson, this resource will start with the absolute basics and
-use them to build more and more complex structures.</p>
-
-          <h1 id="primitives">Primitives</h1>
-
-<p>The word <strong>primitives</strong> is short for <strong>primitive data types</strong>.</p>
-
-<p>When we think <em>primitive</em>, we think of cavemen or apes, of stone-headed arrows and huts made of mud.</p>
-
-<p>Primitive things are <em>simple</em>, and it&rsquo;s no different in Javascript.</p>
-
-<p>Primitives are also the building blocks of the data we organize and operate on
-in an application (written in Javascript or any other language).
-Every structure we use (variables, functions, arrays and objects)
-exist to operate on primitive values, often in great number.</p>
-
-<h2 id="type-of">Type Of</h2>
-<pre class="highlight javascript"><code><span class="k">typeof</span> <span class="mi">100</span><span class="p">;</span> <span class="c1">// 'number'</span>
-<span class="k">typeof</span> <span class="mf">0.01</span><span class="p">;</span> <span class="c1">// 'number'</span>
-<span class="k">typeof</span> <span class="s1">'abcde'</span><span class="p">;</span> <span class="c1">// 'string'</span>
+          <h1 id="the-document">The Document</h1>
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;&lt;head&gt;</span>
+  <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre>
-<p>We can see the type of any primitive or variable by using the <code class="prettyprint">typeof</code> operator.</p>
+<p>When your browser loads an HTML file - anything with the <code class="prettyprint">.html</code> extension - it renders a <strong>document</strong>.
+Like word processing documents, HTML documents specify the shape and style of their content.</p>
 
-<h2 id="booleans">Booleans</h2>
-<pre class="highlight javascript"><code>
-<span class="kd">var</span> <span class="nx">isPresent</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">areRetired</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<p>HTML Documents have a DOCTYPE and two sections: the <strong>head</strong> and the <strong>body</strong>.</p>
 
-<span class="k">typeof</span> <span class="nx">isPresent</span><span class="p">;</span> <span class="c1">// 'boolean'</span>
-
-<span class="c1">// Note: Both true and false are 'reserve words' in Javascript.</span>
-<span class="c1">// Invalid, true is a 'reserved' word</span>
-<span class="kd">var</span> <span class="kc">true</span> <span class="o">=</span> <span class="s1">'value'</span><span class="p">;</span>
+<h2 id="doctype">DOCTYPE</h2>
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 </code></pre>
-<p>Boolean is a fancy word for something that is either <strong>true</strong> or <strong>false</strong>.</p>
+<p>The DOCTYPE tells the browser what version of HTML to expect. We use HTML5, which is defined using <code class="prettyprint">&lt;!DOCTYPE html&gt;</code>.</p>
 
-<h3 id="naming">Naming</h3>
+<h2 id="head">Head</h2>
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My Document<span class="nt">&lt;/title&gt;</span>
 
-<p>Booleans are generally named as a question.
-For example, <code class="prettyprint">isValid</code> would be a boolean that represented whether something was valid,
-while <code class="prettyprint">areHappy</code> could be a boolean representing the mood of a group of people.</p>
+    <span class="c">&lt;!-- Document Icon --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"http://example.com/favicon.ico"</span> <span class="nt">/&gt;</span>
 
-<p>Prefer <code class="prettyprint">isValid</code> to <code class="prettyprint">valid</code>, and <code class="prettyprint">areHappy</code> to <code class="prettyprint">happy</code>.
-The exception to this is when you have a boolean representing success, in that case, prefer <code class="prettyprint">success</code> to <code class="prettyprint">wasSuccessful</code>.</p>
+    <span class="c">&lt;!-- CSS Dependency --&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style.css"</span><span class="nt">&gt;</span>
 
-<h2 id="numbers">Numbers</h2>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span> <span class="c1">// &lt;- integer</span>
-<span class="kd">var</span> <span class="nx">raceTime</span> <span class="o">=</span> <span class="mf">10.01</span><span class="p">;</span> <span class="c1">// &lt;- float (AKA Decimal)</span>
-<span class="kd">var</span> <span class="nx">winnipegTemp</span> <span class="o">=</span> <span class="o">-</span><span class="mi">100</span><span class="p">;</span> <span class="c1">// &lt;- negative Numbers</span>
-<span class="kd">var</span> <span class="nx">cookiesInJar</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="c1">// &lt;- zero</span>
+    <span class="c">&lt;!-- JS Dependency --&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
-<span class="k">typeof</span> <span class="nx">age</span><span class="p">;</span> <span class="c1">// 'number'</span>
-<span class="k">typeof</span> <span class="nx">raceTime</span><span class="p">;</span> <span class="c1">// 'number'</span>
-<span class="k">typeof</span> <span class="nx">winnipegTemp</span><span class="p">;</span> <span class="c1">// 'number'</span>
-<span class="k">typeof</span> <span class="nx">cookiesInJar</span><span class="p">;</span> <span class="c1">// 'number'</span>
+    <span class="c">&lt;!-- Meta Tags - These provide non-essential information about the document --&gt;</span>
+    <span class="c">&lt;!-- This one tells the browser what text encoding we're using --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+
+    <span class="c">&lt;!-- These two are used for Search Engine Optimization --&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"keywords"</span> <span class="na">content=</span><span class="s">"wood, furniture, garden, garden-table, etc."</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">"Official dealer of wooden garden furniture."</span><span class="nt">&gt;</span>
+
+  <span class="nt">&lt;head&gt;</span>
+
+  <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre>
-<p>The Javascript number primitive is very flexible.
-It can be positive or negative, and either integers (AKA whole numbers) or floating point numbers (AKA decimal numbers or floats).</p>
+<p>The document head contains information about the document, including the document title, any meta tags, any CSS and JavaScript dependencies, and the document icon (displayed in the browser tab).</p>
 
-<p>NOTE: In many languages, numbers are represented by two types of primitives: Integer &amp; Float. Can you think of a reason why?</p>
+<h2 id="body">Body</h2>
+<pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My Document<span class="nt">&lt;/title&gt;</span>
 
-<h3 id="naming">Naming</h3>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"shortcut icon"</span> <span class="na">href=</span><span class="s">"http://example.com/favicon.ico"</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">href=</span><span class="s">"style.css"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"main.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
 
-<p>Numbers should be named to describe what they represent in the simplest terms.
-Avoid names like <code class="prettyprint">num</code> whenever possible.</p>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"UTF-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"keywords"</span> <span class="na">content=</span><span class="s">"wood, furniture, garden, garden-table, etc."</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">"Official dealer of wooden garden furniture."</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
 
-<h2 id="strings">Strings</h2>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">silence</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span> <span class="c1">// &lt;- Empty string</span>
-<span class="kd">var</span> <span class="nx">quiet</span> <span class="o">=</span> <span class="s2">""</span><span class="p">;</span> <span class="c1">// &lt;- Empty string using double quotes</span>
-<span class="kd">var</span> <span class="nx">africanAnimal</span> <span class="o">=</span> <span class="s1">'Hippopotamus'</span><span class="p">;</span> <span class="c1">// &lt;- One word</span>
-<span class="kd">var</span> <span class="nx">banalSentense</span> <span class="o">=</span> <span class="s2">"I can be as long as anyone decides to make me..."</span><span class="p">;</span> <span class="c1">// Long strings</span>
+  <span class="c">&lt;!-- The Body: --&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;header&gt;</span>
+      <span class="nt">&lt;h1&gt;</span>This is my header text<span class="nt">&lt;/h1&gt;</span>
+    <span class="nt">&lt;/header&gt;</span>
 
-<span class="k">typeof</span> <span class="nx">quiet</span><span class="p">;</span> <span class="c1">// 'string'</span>
+    <span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"content"</span><span class="nt">&gt;</span>
+      <span class="nt">&lt;h2&gt;</span>This is the content header<span class="nt">&lt;/h2&gt;</span>
+      <span class="nt">&lt;p&gt;</span>This is the content<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+
+    <span class="nt">&lt;footer&gt;</span>
+      <span class="nt">&lt;p&gt;</span>This is my footer text<span class="nt">&lt;/p&gt;</span>
+    <span class="nt">&lt;/footer&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
 </code></pre>
-<p>A string is just a sequence of characters. It can be empty or as long as you&rsquo;d like.</p>
+<p>The body contains the content of the page, built using <a href="#elements">HTML Elements</a>.</p>
 
-<p>You can declare strings with either single or double quotes.
-Javascript doesn&rsquo;t care, but your colleagues will, so be sure you&rsquo;re consistent.</p>
+          <h1 id="elements">Elements</h1>
+<pre class="highlight html"><code><span class="c">&lt;!-- Format: --&gt;</span>
+<span class="nt">&lt;element&gt;</span>
+  ...content
+<span class="nt">&lt;/element&gt;</span>
 
-<h3 id="naming">Naming</h3>
+<span class="c">&lt;!-- Examples: --&gt;</span>
+<span class="nt">&lt;h1&gt;</span>This is a large header<span class="nt">&lt;/h1&gt;</span>
 
-<p>Like numbers, use a string&rsquo;s name to describe its contents.</p>
+<span class="nt">&lt;p&gt;</span>
+  This is a paragraph. It can contain as many words as you need.
+<span class="nt">&lt;/p&gt;</span>
 
-<h3 id="note-beware-39-smart-quotes-39">NOTE: Beware &lsquo;smart quotes&rsquo;</h3>
-
-<p>They are the curvy cousin of single and double quotes, but Javascript and HTML don&rsquo;t understand them.</p>
-
-<p><code class="prettyprint">“You’re smart!”</code> should be <code class="prettyprint">&quot;You&#39;re smart!&quot;</code></p>
-
-<h2 id="null">Null</h2>
-<pre class="highlight javascript"><code><span class="c1">// User is logged in</span>
-<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="nx">getUserInformation</span><span class="p">();</span>
-
-<span class="c1">// User logs out</span>
-<span class="nx">user</span> <span class="o">=</span> <span class="kc">null</span><span class="p">;</span>
+<span class="nt">&lt;div&gt;</span>
+  This is a div, a generic element that contains other elements.
+  <span class="nt">&lt;h4&gt;</span>Like this smaller header,<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;p&gt;</span>And this paragraph<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 </code></pre>
-<p>Sometimes we need to express that something contains nothing.
-For example, when a user logs out, we might set <code class="prettyprint">user = null</code>.
-Similarly if someone visits a payment page but have not yet entered any payment information,
-we might initially set <code class="prettyprint">creditCard = null</code>.</p>
+<p><strong>HTML Elements</strong> (AKA HTML Tags) are the objects we place within an HTML <strong>document</strong>.</p>
 
-<h2 id="undefined">Undefined</h2>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">name</span><span class="p">;</span>
+<p>They are specific words wrapped in angle brackets (<code class="prettyprint">&lt;</code> and <code class="prettyprint">&gt;</code>).
+We say that they are <em>opened</em> when you write a tag, (ie. <code class="prettyprint">&lt;header&gt;</code>),
+and <em>closed</em> when you  right the tag again, this time with a forward slash (ie. <code class="prettyprint">&lt;/header&gt;</code>.</p>
 
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">name</span><span class="p">);</span>
-<span class="c1">// undefined</span>
+<h2 id="block-elements">Block Elements</h2>
+<pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>The header of my documents<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h4&gt;</span>The subheader; a bit of context<span class="nt">&lt;/h4&gt;</span>
+
+<span class="nt">&lt;p&gt;</span>
+  This is where I describe what my page is about.
+  Paragraphs are generally much longer than headers.
+<span class="nt">&lt;/p&gt;</span>
 </code></pre>
-<p><code class="prettyprint">undefined</code> is similar to <code class="prettyprint">null</code> in that it represents a value that has not been set.
-The difference is that <code class="prettyprint">null</code> values are set <strong>on purpose</strong>, while <code class="prettyprint">undefined</code> values are generally either an error case or simply not defined.</p>
+<p>By default, <strong>Block Elements</strong> take up the entire width of the document.</p>
 
-          <h1 id="variables">Variables</h1>
-<pre class="highlight javascript"><code><span class="c1">// Primitives</span>
-<span class="kd">var</span> <span class="nx">age</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s1">'Bruce'</span><span class="p">;</span>
+<p>In the example to the right, each element will be on its own horizontal section.</p>
 
-<span class="c1">// Functions</span>
-<span class="kd">var</span> <span class="nx">getName</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s1">'Bruce'</span><span class="p">;</span>
-<span class="p">}</span>
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/evMgoK">View in Codepen</a></p>
 
-<span class="c1">// Function return value</span>
-<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
+<h2 id="inline-elements">Inline Elements</h2>
+<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>
+  <span class="nt">&lt;strong&gt;</span>This strong text<span class="nt">&lt;/strong&gt;</span>
+  is beside this normal text
+  <span class="nt">&lt;em&gt;</span>and beside this emphasized text<span class="nt">&lt;/em&gt;</span>
+<span class="nt">&lt;/p&gt;</span>
 
-<span class="c1">// Another variable</span>
-<span class="kd">var</span> <span class="nx">house</span> <span class="o">=</span> <span class="s1">'home'</span>
-<span class="kd">var</span> <span class="nx">home</span> <span class="o">=</span> <span class="nx">house</span><span class="p">;</span>
-
-<span class="c1">// Arrays</span>
-<span class="kd">var</span> <span class="nx">listOfNames</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Alex'</span><span class="p">,</span> <span class="s1">'John'</span><span class="p">,</span> <span class="s1">'Maria'</span><span class="p">];</span>
-
-<span class="c1">// Objects</span>
-<span class="kd">var</span> <span class="nx">door</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">colour</span><span class="p">:</span> <span class="s1">'white'</span><span class="p">,</span>
-  <span class="na">handle</span><span class="p">:</span> <span class="s1">'traditional'</span><span class="p">,</span>
-  <span class="na">hasLock</span><span class="p">:</span> <span class="kc">false</span><span class="p">,</span>
-  <span class="na">hasKeyhole</span><span class="p">:</span> <span class="kc">true</span>
-<span class="p">}</span>
+<span class="nt">&lt;div&gt;</span>
+  <span class="c">&lt;!-- These images will be beside each other --&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"First image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"Second image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"Third image"</span><span class="nt">&gt;</span>  
+<span class="nt">&lt;/div&gt;</span>
 </code></pre>
-<p>Variables help our application reference the data stored in our computer&rsquo;s memory (RAM).</p>
+<p>Unlike Block Elements, <strong>Inline Elements</strong> are displayed <em>in a line</em>.</p>
 
-<p>Without variables, trying to access that data would be like trying to grab a helium balloon without a string.
-It&rsquo;s there, but you can&rsquo;t get to it!</p>
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/evMgwK">View in Codepen</a></p>
 
-<p>In Javascript pretty much anything can be assigned to a variable. Some examples:</p>
+<h2 id="void-elements">Void Elements</h2>
+<pre class="highlight html"><code><span class="c">&lt;!-- Void Element Usage --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"First image"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;br&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"myInput"</span><span class="nt">&gt;</span>
+</code></pre>
+<p><strong>Void</strong> (AKA Empty) elements are not designed to have any content.
+Because of this, they don&rsquo;t require a closing tag.</p>
+
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/NpYdQj">View in Codepen</a></p>
+
+<h2 id="reference">Reference</h2>
+<pre class="highlight html"><code><span class="c">&lt;!-- List examples --&gt;</span>
+<span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>This will be an ordered (numbered) list<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>You can have as many items as you need<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>This will be an unordered (bullet) list<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>You can have as many items as you need<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+
+<span class="c">&lt;!-- Grouping Examples --&gt;</span>
+<span class="nt">&lt;div&gt;</span>
+  DIV elements are used for grouping elements. You can add text...
+  <span class="nt">&lt;p&gt;</span>
+    But it is usually better to add text within
+    <span class="nt">&lt;em&gt;</span>typography elements<span class="nt">&lt;/em&gt;</span>
+    like paragraphs.
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+
+<span class="nt">&lt;header&gt;</span>
+  HTML5 gave us more semantic elements like <span class="nt">&lt;em&gt;</span>Header<span class="nt">&lt;/em&gt;</span>.
+  It acts the same as div, but its name gives us an idea of what it <span class="nt">&lt;em&gt;</span>does<span class="nt">&lt;/em&gt;</span>.
+
+  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Home<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>About<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Pricing<span class="nt">&lt;/li&gt;</span>
+    <span class="nt">&lt;li&gt;</span>Contact<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;/ul&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="c">&lt;!-- Form Example --&gt;</span>
+<span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"username"</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"username"</span><span class="nt">&gt;</span> <span class="nt">&lt;br&gt;</span>
+
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span><span class="nt">&gt;</span> <span class="nt">&lt;br&gt;</span>
+
+  <span class="nt">&lt;select&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span> <span class="nt">&lt;br&gt;</span>
+
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"description"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+
+<span class="c">&lt;!-- Media Examples --&gt;</span>
+<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"Second image"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;audio</span> <span class="na">controls</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"horse.ogg"</span> <span class="na">type=</span><span class="s">"audio/ogg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"horse.mp3"</span> <span class="na">type=</span><span class="s">"audio/mpeg"</span><span class="nt">&gt;</span>
+  Your browser does not support the audio tag.
+<span class="nt">&lt;/audio&gt;</span>
+
+<span class="nt">&lt;video</span> <span class="na">width=</span><span class="s">"320"</span> <span class="na">height=</span><span class="s">"240"</span> <span class="na">controls</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"movie.mp4"</span> <span class="na">type=</span><span class="s">"video/mp4"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"movie.ogg"</span> <span class="na">type=</span><span class="s">"video/ogg"</span><span class="nt">&gt;</span>
+  Your browser does not support the video tag.
+<span class="nt">&lt;/video&gt;</span>
+</code></pre>
+<p>Here are some of the more common elements and their usage.
+There are many more, but this should get you started!</p>
+
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/vxRxBO">View Examples in Codepen</a></p>
+
+<p><strong>Typography</strong></p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Heading 1</td>
+<td><code class="prettyprint">&lt;h1&gt;Main Heading&lt;/h1&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 2</td>
+<td><code class="prettyprint">&lt;h2&gt;Secondary Heading&lt;/h2&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 3</td>
+<td><code class="prettyprint">&lt;h3&gt;Smaller than h2&lt;/h3&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 4</td>
+<td><code class="prettyprint">&lt;h4&gt;Smaller than h3&lt;/h4&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 5</td>
+<td><code class="prettyprint">&lt;h5&gt;Smaller than h4&lt;/h5&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 6</td>
+<td><code class="prettyprint">&lt;h6&gt;Smaller than h5&lt;/h6&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td><code class="prettyprint">&lt;p&gt;This is where we place regular text&lt;/p&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Strong</td>
+<td><code class="prettyprint">&lt;p&gt;One word will be &lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Emphasis</td>
+<td><code class="prettyprint">&lt;p&gt;One word will be &lt;em&gt;emphasized&lt;/em&gt;&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Span</td>
+<td><code class="prettyprint">&lt;p&gt;One word can be &lt;span&gt;styled&lt;/span&gt;&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Line Break</td>
+<td><code class="prettyprint">&lt;p&gt;This will be on &lt;br&gt; 2 lines&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>True</td>
+</tr>
+</tbody></table>
+
+<p><strong>Lists</strong></p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Ordered List</td>
+<td><code class="prettyprint">&lt;ol&gt;&lt;/ol&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Unordered List</td>
+<td><code class="prettyprint">&lt;ul&gt;&lt;/ul&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>List Item</td>
+<td><code class="prettyprint">&lt;li&gt;&lt;/li&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p><strong>Grouping</strong></p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Header</td>
+<td><code class="prettyprint">&lt;header&gt;&lt;/header&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Footer</td>
+<td><code class="prettyprint">&lt;footer&gt;&lt;/footer&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Division</td>
+<td><code class="prettyprint">&lt;div&gt;&lt;/div&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Section</td>
+<td><code class="prettyprint">&lt;section&gt;&lt;/section&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Article</td>
+<td><code class="prettyprint">&lt;article&gt;&lt;/article&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p><strong>Forms</strong></p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Form</td>
+<td><code class="prettyprint">&lt;form&gt;&lt;/form&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Input</td>
+<td><code class="prettyprint">&lt;input&gt;</code></td>
+<td>Inline</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Dropdown Menu (Select)</td>
+<td><code class="prettyprint">&lt;select&gt;&lt;/select&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Dropdown Menu Option</td>
+<td><code class="prettyprint">&lt;option&gt;&lt;/option&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Large Text Box</td>
+<td><code class="prettyprint">&lt;textarea&gt;&lt;/textarea&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Input Label</td>
+<td><code class="prettyprint">&lt;label&gt;&lt;/label&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Button</td>
+<td><code class="prettyprint">&lt;button&gt;&lt;/button&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p><strong>Media</strong></p>
+
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Image</td>
+<td><code class="prettyprint">&lt;img&gt;</code></td>
+<td>Inline</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td><code class="prettyprint">&lt;audio&gt;&lt;/audio&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Video</td>
+<td><code class="prettyprint">&lt;video&gt;&lt;/video&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+          <h1 id="attributes">Attributes</h1>
+
+          <h1 id="understanding-html-structure">Understanding HTML Structure</h1>
+
+<p>HTML documents have a strict <strong>hierarchy</strong>.</p>
+
+<p>To understand with this means, let&rsquo;s explore two ways of modelling the document we defined in the previous example: <strong>trees</strong> and <strong>nesting boxes</strong>.</p>
+
+<h2 id="trees">Trees</h2>
+<pre class="highlight plaintext"><code>                    HTML Document Tree
+
+                           html
+                            |
+             -----------------------------------
+             |                                  |
+           head                                body
+             |                                  |
+  ---------------------------           ---------------------
+  |       |         |       |           |        |           |
+title  link(x2)  script  meta(x3)     header    div       footer
+                                        |        |           |
+                                       h1    ---------       p
+                                             |        |
+                                             h2       p
+
+</code></pre>
+<p>One of the most common ways to model hierarchy is by using a <strong>tree</strong> (similar to family trees).
+In fact, this is how CSS and JavaScript understand HTML!</p>
+
+<p>The tree on the right is just another way of modeling the document defined in the previous example.</p>
+
+<p>Some helpful tree terminology:</p>
 
 <ul>
-<li>Any primitive</li>
-<li>Functions</li>
-<li>Function return value</li>
-<li>Another variable</li>
-<li>Arrays</li>
-<li>Objects</li>
+<li>An element directly above another is its <strong>parent</strong></li>
+<li>An element directly below another is its <strong>child</strong></li>
+<li>Any elements higher in the tree than an element are its <strong>ancestors</strong></li>
+<li>Any elements lower in the tree than an element are its <strong>descendants</strong></li>
+<li>Any elements at the same level of the tree and with the <em>same parent</em> are <strong>siblings</strong></li>
 </ul>
 
-<h3 id="const-and-let"><code class="prettyprint">const</code> and <code class="prettyprint">let</code></h3>
-
-<p>The newest version of Javascript also allows us to use <code class="prettyprint">let</code> and <code class="prettyprint">const</code> to define variables.
-Their use is outside the purvue of this resource, but research is encouraged!</p>
-
-          <h1 id="functions">Functions</h1>
-<pre class="highlight javascript"><code><span class="kd">function</span> <span class="nx">sayHello</span><span class="p">()</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'hello!'</span><span class="p">);</span>
-<span class="p">}</span>
+<h2 id="nesting-boxes">Nesting Boxes</h2>
+<pre class="highlight plaintext"><code>|-------- html -----------------------------------------|
+|                                                       |
+|  |---- head ---------------------------------|        |
+|  | _______  _________   _______   _________  |        |
+|  | |title|  |link x 2|  |script|  |meta x 3| |        |
+|  | ⎻⎻⎻⎻⎻⎻⎻  ⎻⎻⎻⎻⎻⎻⎻⎻⎻   ⎻⎻⎻⎻⎻⎻⎻   ⎻⎻⎻⎻⎻⎻⎻⎻⎻  |        |
+|  |-------------------------------------------|        |
+|                                                       |
+|  |---- body ---------------------------------------|  |
+|  |                                                 |  |
+|  |  |- header -|  |---- div -----|  |-- header -|  |  |
+|  |  |  _____   |  |  _____  ___  |  |   ______  |  |  |
+|  |  | | h1 |   |  | | h2 | | p | |  |   | h1 |  |  |  |
+|  |  |  ⎻⎻⎻⎻⎻   |  |  ⎻⎻⎻⎻⎻  ⎻⎻⎻  |  |   ⎻⎻⎻⎻⎻⎻  |  |  |
+|  |  |----------|  |--------------|  |-----------|  |  |
+|  |-------------------------------------------------|  |
+|                                                       |
+|-------------------------------------------------------|
 </code></pre>
-<p>Functions are <strong>things that do things</strong>.</p>
+<p>Heirarchy can also be modelled as nesting boxes, which is a nice way of understanding which elements are the <em>owners</em> of other elements.</p>
 
-<p>They take zero or more inputs, and optionally provide a return value.</p>
-
-<h3 id="parameters-amp-arguments">Parameters &amp; Arguments</h3>
-
-<p><code class="prettyprint">function</code> parameters are also known as <em>arguments</em>.
-We can say &ldquo;how many parameters does the function have?&rdquo;, and we can also say &ldquo;how many arguments does it take?&rdquo;.</p>
-
-<p>The <code class="prettyprint">printAverage</code> function, for example, both &ldquo;has 2 parameters&rdquo; and &ldquo;takes 2 arguments&rdquo;.</p>
-
-<h2 id="structure">Structure</h2>
-<pre class="highlight javascript"><code><span class="c1">// No parameters</span>
-<span class="kd">function</span> <span class="nx">getName</span><span class="p">()</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="s1">'Peter'</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// One parameter</span>
-<span class="kd">function</span> <span class="nx">askNicely</span><span class="p">(</span><span class="nx">question</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Note: when used on two strings,</span>
-  <span class="c1">// the + operator combines them into one string</span>
-  <span class="k">return</span> <span class="nx">question</span> <span class="o">+</span> <span class="s1">', please.'</span><span class="p">;</span>
-<span class="p">}</span>
-
-<span class="c1">// Two parameters, no return value</span>
-<span class="kd">function</span> <span class="nx">printAverage</span><span class="p">(</span><span class="nx">firstValue</span><span class="p">,</span> <span class="nx">secondValue</span><span class="p">)</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">average</span> <span class="o">=</span> <span class="p">(</span><span class="nx">firstValue</span> <span class="o">+</span> <span class="nx">secondValue</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">;</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">average</span><span class="p">);</span>
-<span class="p">}</span>
-</code></pre>
-<p>Functions are defined using <code class="prettyprint">function</code> keyword, followed by a name, followed by brackets containing zero or more parameters.</p>
-
-<p>The body of the function is wrapped by curly braces(<code class="prettyprint">{ }</code>).</p>
-
-<p>If the function returns something, use the <code class="prettyprint">return</code> keyword followed by whatever is being returned.
-Functions that don&rsquo;t explicitly <code class="prettyprint">return</code> anything will return <code class="prettyprint">undefined</code>.</p>
-
-<h2 id="naming">Naming</h2>
-<pre class="highlight javascript"><code><span class="c1">// named with a verb followed by a subject</span>
-<span class="kd">function</span> <span class="nx">visitSchool</span><span class="p">(</span><span class="nx">schoolName</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
-<span class="kd">function</span> <span class="nx">debatePolitics</span><span class="p">(</span><span class="nx">era</span><span class="p">,</span> <span class="nx">country</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
-
-<span class="c1">// named with just a verb</span>
-<span class="kd">function</span> <span class="nx">reboot</span><span class="p">(</span><span class="nx">windowsMachine</span><span class="p">)</span> <span class="p">{</span> <span class="p">...</span> <span class="p">}</span>
-</code></pre>
-<p>Functions <strong>do things</strong>, so they should be named using verbs.</p>
-
-<p>Put the verb first, followed by the subject (if necessary).</p>
-
-<h2 id="assignment">Assignment</h2>
-<pre class="highlight javascript"><code>
-<span class="c1">// An anonymous function</span>
-<span class="c1">// Note that we use function(sentence)</span>
-<span class="c1">// and not function name(sentence)</span>
-<span class="kd">function</span><span class="p">(</span><span class="nx">sentence</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sentence</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
-<span class="p">}</span>
-
-<span class="c1">// Assigning an anonymous function to a variable</span>
-<span class="kd">var</span> <span class="nx">shoutSentence</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">sentence</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">sentence</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">());</span>
-<span class="p">}</span>
-</code></pre>
-<p>Functions can be assigned to variables.
-When we do this, we generally omit the string in between the <code class="prettyprint">function</code> keyword
-and the brackets that wrap the function arguments.</p>
-
-<p>These types of functions are called <strong>anonymous</strong>.</p>
-
-<h2 id="invoking-calling">Invoking/Calling</h2>
-<pre class="highlight javascript"><code><span class="c1">// Call a function</span>
-<span class="nx">sayHello</span><span class="p">();</span>
-
-<span class="c1">// Pass parameters</span>
-<span class="nx">printAverage</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">100</span><span class="p">);</span>
-
-<span class="c1">// Store return value in a variable</span>
-<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="nx">getName</span><span class="p">();</span>
-
-<span class="c1">// Calll operateOnArray</span>
-<span class="c1">// Pass array as first argument</span>
-<span class="c1">// Pass an anonymous function as the second argument</span>
-<span class="nx">operateOnArray</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// Operate on array</span>
-<span class="p">});</span>
-
-<span class="c1">// We can also store the array and function in variables, then pass them in</span>
-<span class="kd">var</span> <span class="nx">myList</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
-
-<span class="kd">function</span> <span class="nx">printValue</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">value</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">operateOnArray</span><span class="p">(</span><span class="nx">array</span><span class="p">,</span> <span class="nx">printValue</span><span class="p">);</span>
-</code></pre>
-<p>When we <em>call</em> or <em>invoke</em> a function, simply use the function name followed by brackets containing any arguments seperated by commas.</p>
-
-<p>Note that when we call/invoke a function we say we &ldquo;pass in arguments&rdquo;.
-When we call <code class="prettyprint">printAverage</code>, for example, we pass in <code class="prettyprint">10</code> and <code class="prettyprint">100</code> as arguments.</p>
-
-<p>We can also pass anonymous functions <em>as arguments</em>, just like we can assign them to variables.</p>
-
-          <h1 id="scope">Scope</h1>
-<pre class="highlight javascript"><code><span class="c1">// Simple scope</span>
-<span class="c1">// myVariable can be accessed easily</span>
-<span class="kd">var</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">variable</span><span class="p">);</span> <span class="c1">// true</span>
-
-<span class="c1">// if/else has no affect on scope</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">variable</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span>
-<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="c1">// myVariable can be accessed within a function written in the same scope</span>
-<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">()</span> <span class="p">{</span>
-  <span class="c1">// myVariable can be accessed here</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="p">}</span>
-
-<span class="c1">// If we define a variable inside a function,</span>
-<span class="c1">// it is not within the scope of any outer functions</span>
-<span class="kd">function</span> <span class="nx">myOtherFunction</span><span class="p">()</span> <span class="p">{</span>
-  <span class="kd">var</span> <span class="nx">myInnerVariable</span> <span class="o">=</span> <span class="s1">'I am a variable'</span><span class="p">;</span>
-
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myInnerVariable</span><span class="p">);</span> <span class="c1">// I am a variable</span>
-  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myVariable</span><span class="p">);</span> <span class="c1">// true</span>
-<span class="p">}</span>
-
-<span class="c1">// Can't access myInnerVariable here</span>
-<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">myInnerVariable</span><span class="p">);</span> <span class="c1">// undefined</span>
-</code></pre>
-<p><strong>Scope</strong> is a word used to describe where something is available in our code.
-A variable can be accesed if it is <em>within the scope</em> of whatever code is currently executing.</p>
-
-<p>In Javascript, scope is determined at the <code class="prettyprint">function</code> level, working from the outside it.</p>
-
-<p>It&rsquo;s much easier to learn from the examples to the right.</p>
-
-          <h1 id="arrays">Arrays</h1>
-<pre class="highlight javascript"><code><span class="c1">// Array of strings</span>
-<span class="kd">var</span> <span class="nx">synonymsForSmall</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'petite'</span><span class="p">,</span> <span class="s1">'diminutive'</span><span class="p">,</span> <span class="s1">'tiny'</span><span class="p">];</span>
-
-<span class="c1">// Array of objects</span>
-<span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="na">id</span><span class="p">:</span> <span class="mi">1223344</span><span class="p">,</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'John Smith'</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="na">id</span><span class="p">:</span> <span class="mi">3334442</span><span class="p">,</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'Michael Jones'</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="na">id</span><span class="p">:</span> <span class="mi">4455433</span><span class="p">,</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'Beatrice Potter'</span>
-  <span class="p">}</span>
-<span class="p">];</span>
-</code></pre>
-<p>Arrays are a way of <strong>organizing data</strong> into a <strong>list</strong>. We refer to the items in an array as <strong>elements</strong>.</p>
-
-<p>Examples:</p>
-
-<ul>
-<li>A thesaurus might define a word&rsquo;s synonyms as an array of words</li>
-<li>A school might define its population as an array of students</li>
-</ul>
-
-<p>Just like anything can be assigned to a variable, anything can be added to an array.
-However, arrays only make sense if they hold many elements of the same type.</p>
-
-<p>An array that contained 30 cars and 10 ducks, for example, wouldn&rsquo;t make sense.</p>
-
-<h2 id="indexes">Indexes</h2>
-
-<p>Each element in an array has an <strong>index</strong>.
-The first element added to an array has an index of 0, and we count up from there.
-Because we count from zero, we can always say that the highest index in the array is <em>one less</em> than the length of the array.</p>
-
-<p>Example:</p>
-
-<p>If we have an array containing three numbers: <code class="prettyprint">[100, 200, 300]</code>,
-the index of 100 would be 0, 200 would be 1, and 300 would be 2.
-The length of the array is 3.</p>
-
-<h2 id="defining">Defining</h2>
-<pre class="highlight javascript"><code><span class="c1">// Array of numbers</span>
-<span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">111</span><span class="p">,</span> <span class="mi">222</span><span class="p">,</span> <span class="mi">333</span><span class="p">,</span> <span class="mi">444</span><span class="p">];</span>
-
-<span class="c1">// Array of variables</span>
-<span class="kd">var</span> <span class="nx">one</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">two</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">three</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
-
-<span class="kd">var</span> <span class="nx">variableNumbers</span> <span class="o">=</span> <span class="p">[</span><span class="nx">one</span><span class="p">,</span> <span class="nx">two</span><span class="p">,</span> <span class="nx">three</span><span class="p">];</span>
-
-<span class="c1">// Array of objects</span>
-<span class="kd">var</span> <span class="nx">students</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">{</span>
-    <span class="na">id</span><span class="p">:</span> <span class="mi">1223344</span><span class="p">,</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'John Smith'</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="na">id</span><span class="p">:</span> <span class="mi">3334442</span><span class="p">,</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'Michael Jones'</span>
-  <span class="p">},</span>
-  <span class="p">{</span>
-    <span class="na">id</span><span class="p">:</span> <span class="mi">4455433</span><span class="p">,</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'Beatrice Potter'</span>
-  <span class="p">}</span>
-<span class="p">];</span>
-
-<span class="c1">// Array of arrays</span>
-<span class="kd">var</span> <span class="nx">graph</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="p">[</span><span class="mi">200</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">400</span><span class="p">],</span>
-  <span class="p">[</span><span class="mi">500</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">700</span><span class="p">],</span>
-  <span class="p">[</span><span class="mi">800</span><span class="p">,</span> <span class="mi">900</span><span class="p">,</span> <span class="mi">1000</span><span class="p">],</span> <span class="c1">// This final comma is optional</span>
-<span class="p">];</span>
-
-<span class="c1">// Array of functions</span>
-<span class="kd">var</span> <span class="nx">actions</span> <span class="o">=</span> <span class="p">[</span>
-  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span><span class="p">);</span> <span class="p">},</span>
-  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="p">},</span>
-  <span class="kd">function</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">x</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span> <span class="p">},</span>
-<span class="p">]</span>
-</code></pre>
-<p>Arrays can be defined in several ways, but most common is to use square brackets with elements separated by commas.</p>
-
-<h2 id="accessing-elements">Accessing Elements</h2>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="s1">'Elizabeth'</span><span class="p">];</span>
-
-<span class="nx">names</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1">// 'Jack'</span>
-<span class="nx">names</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="c1">// 'David'</span>
-<span class="nx">names</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="c1">// 'Elizabeth'</span>
-</code></pre>
-<p>Elements can be accessed directly if you know the element&rsquo;s index.</p>
-
-<h2 id="iterating">Iterating</h2>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'Jack'</span><span class="p">,</span> <span class="s1">'David'</span><span class="p">,</span> <span class="s1">'Elizabeth'</span><span class="p">];</span>
-
-<span class="c1">// Javascript forEach function</span>
-<span class="c1">// Using an anonymous function (conventional use)</span>
-<span class="nx">names</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">value</span><span class="p">.</span><span class="nx">toUpperCase</span><span class="p">();</span>
-<span class="p">});</span>
-
-<span class="c1">// Using jQuery's each</span>
-<span class="c1">// Note that the anonymous function we pass in</span>
-<span class="c1">// has both an index and value parameter</span>
-<span class="nx">$</span><span class="p">(</span><span class="s1">'li'</span><span class="p">).</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">index</span><span class="p">,</span> <span class="nx">value</span><span class="p">)</span> <span class="p">{</span>
-  <span class="c1">// operate on li element</span>
-<span class="p">});</span>
-</code></pre>
-<p>Iterating over an array means accessing every element in the array.</p>
-
-<p>We can do this manually with constructs like <code class="prettyprint">for</code> loops, but we generally use functions to make our lives easier.
-These iterating functions access the <em>value</em> of each element in our array and give it back as a parameter in a function that we pass in.</p>
-
-          <h1 id="objects">Objects</h1>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">myObject</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">name</span><span class="p">:</span> <span class="s1">'Jonathon'</span><span class="p">,</span>
-  <span class="na">age</span><span class="p">:</span> <span class="mi">42</span>
-<span class="p">}</span>
-</code></pre>
-<p>Like arrays, objects are used to <strong>organize data</strong>.
-The difference is that objects use <strong>named properties</strong> instead of indexes to access elements.</p>
-
-<p><strong>Named properties</strong> operate very similarly to variables, except that they exist only within the context of their object.</p>
-
-<p>When we talk about named properties of objects, we call them &lsquo;properties&rsquo;, &#39;keys&rsquo;, or &#39;attributes&rsquo;.
-They are part of the <strong>key/value pair</strong> paradigm.</p>
-
-<p>In the <code class="prettyprint">myObject</code> example, <code class="prettyprint">name</code> and <code class="prettyprint">age</code> are <strong>keys</strong>, and <code class="prettyprint">&#39;Jonathon&#39;</code> and <code class="prettyprint">42</code> are their respective values.</p>
-
-<h2 id="defining">Defining</h2>
-<pre class="highlight javascript"><code><span class="c1">// A simple object</span>
-<span class="kd">var</span> <span class="nx">student</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">name</span><span class="p">:</span> <span class="s1">'James Taylor'</span><span class="p">,</span>
-  <span class="na">age</span><span class="p">:</span> <span class="mi">67</span>
-<span class="p">}</span>
-
-<span class="c1">// A complex object containing Arrays and other objects</span>
-<span class="kd">var</span> <span class="nx">redClass</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="na">size</span><span class="p">:</span> <span class="mi">22</span><span class="p">,</span>
-  <span class="na">subject</span><span class="p">:</span> <span class="s1">'Web Development'</span><span class="p">,</span>
-  <span class="na">students</span><span class="p">:</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="na">id</span><span class="p">:</span> <span class="mi">1223344</span><span class="p">,</span>
-      <span class="na">name</span><span class="p">:</span> <span class="s1">'John Smith'</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="na">id</span><span class="p">:</span> <span class="mi">3334442</span><span class="p">,</span>
-      <span class="na">name</span><span class="p">:</span> <span class="s1">'Michael Jones'</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="na">id</span><span class="p">:</span> <span class="mi">4455433</span><span class="p">,</span>
-      <span class="na">name</span><span class="p">:</span> <span class="s1">'Beatrice Potter'</span>
-    <span class="p">}</span>
-  <span class="p">],</span>
-  <span class="na">campus</span><span class="p">:</span> <span class="p">{</span>
-    <span class="na">name</span><span class="p">:</span> <span class="s1">'Vancouver'</span><span class="p">,</span>
-    <span class="na">age</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="na">instructors</span><span class="p">:</span> <span class="p">[</span><span class="s1">'Ben'</span><span class="p">,</span> <span class="s1">'Rose'</span><span class="p">,</span> <span class="s1">'Mack'</span><span class="p">],</span>
-    <span class="na">kitchen</span><span class="p">:</span> <span class="p">{</span>
-      <span class="na">hasBeer</span><span class="p">:</span> <span class="kc">true</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">};</span>
-</code></pre>
-<p>Objects are defined using curly braces. Object properties take the form of key/value pairs separated by a colon and ended with a comma.</p>
-
-<p>Like variables and arrays, anything can be assigned to an object property, even functions!</p>
-
-<p>To create more complex data structures, we can assign arrays and objects to properties, creating a nested (hierarchical) shape.</p>
-
-<p>Note: when we assign a <strong>function</strong> to an object, we call is a <strong>method</strong></p>
-
-<h2 id="accessing-properties">Accessing Properties</h2>
-<pre class="highlight javascript"><code><span class="c1">// Using the redClass object above</span>
-
-<span class="c1">// Access the redClass size</span>
-<span class="nx">redClass</span><span class="p">.</span><span class="nx">size</span><span class="p">;</span> <span class="c1">// 22</span>
-
-<span class="c1">// Access the name of the first student in the student array</span>
-<span class="nx">redClass</span><span class="p">.</span><span class="nx">students</span><span class="p">[</span><span class="mi">0</span><span class="p">].</span><span class="nx">name</span><span class="p">;</span> <span class="c1">// John Smith</span>
-
-<span class="c1">// Figure out if the kitchen has beer</span>
-<span class="nx">redClass</span><span class="p">.</span><span class="nx">campus</span><span class="p">.</span><span class="nx">kitchen</span><span class="p">.</span><span class="nx">hasBeer</span><span class="p">;</span> <span class="c1">// true</span>
-
-<span class="c1">// The above is equivalent to:</span>
-<span class="kd">var</span> <span class="nx">campus</span> <span class="o">=</span> <span class="nx">redClass</span><span class="p">.</span><span class="nx">campus</span><span class="p">;</span>
-<span class="kd">var</span> <span class="nx">kitchen</span> <span class="o">=</span> <span class="nx">redClass</span><span class="p">.</span><span class="nx">kitchen</span><span class="p">;</span>
-<span class="nx">kitchen</span><span class="p">.</span><span class="nx">hasBeer</span><span class="p">;</span> <span class="c1">// true</span>
-</code></pre>
-<p>Object properties are accessed using dot notation. Simply place a <code class="prettyprint">.</code> between the object name and the property name.
-For nested objects, you can chain your dots.</p>
+<p>Elements <em>own</em> or <em>contain</em> <strong>all of their descendants</strong>.</p>
 
           <h1 id="contributing">Contributing</h1>
 
@@ -709,260 +729,10 @@ git merge upstream/master
 <p>Then you can resolve your conflicts and push back to your fork.
 Pull requests update automatically when new commits are pushed.</p>
 
-          <h2 id="passing-by-value-vs-passing-by-reference">Passing by Value vs. Passing by Reference</h2>
-
-<h1 id="passing-by-reference">Passing by Reference</h1>
-
-<p>You&rsquo;re in an university class, given a topic on <strong>Passing by Reference</strong>. Your
-whole class is really struggling with the paper and everyone is complaining,
-wanting a topic change. But unfortunately, Professor JavaScript sees the value
-in the topic and it will never change. So consider this, even though the
-topic, or value, never changes, the papers handed in can have different
-contents but the topic never changes. In essence, now when talking about
-<strong>Passing by Reference</strong> all those papers can be handed in no matter the
-attributes of those papers.</p>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">paperTopic</span> <span class="o">=</span> <span class="p">[</span><span class="nx">paper1</span><span class="p">,</span> <span class="nx">paper2</span><span class="p">,</span> <span class="nx">paper3</span><span class="p">,</span> <span class="nx">paper4</span><span class="p">];</span>
-</code></pre>
-<p><em>Values</em> in this example array can be changed,
-but the topic, or value of the array,
-never changes.</p>
-
-<h1 id="passing-by-value">Passing by Value</h1>
-
-<p>Conversely, Professor JavaScript doesn&rsquo;t like you. He makes you handwrite
-your paper, but also, for some ridiculous reason, wants you to hand in a
-photocopy. After handing it in you frame your handwritten paper, so it never
-changes. Meanwhile, Professor JavaScript figuratively shits on your paper, changing
-it forever, but he shall never touch your handwritten &lsquo;masterpiece&rsquo;.</p>
-<pre class="highlight javascript"><code><span class="kd">var</span> <span class="nx">handwritten</span> <span class="o">=</span> <span class="s1">'yourHandwrittenPaper'</span>
-
-<span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">changePaper</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">handwritten</span> <span class="o">+</span> <span class="s1">'is 49%'</span>
-<span class="p">})</span>
-</code></pre>
-<p>This example function will return <em>&#39;yourHandwrittenPaper is 49%&rsquo;</em>. This shows that
-<strong>handwritten</strong> can be called in a function, but never changes the original value of
-the handwritten variable.</p>
-
-<h1 id="pure-function">Pure function</h1>
-
-<p><strong>Pure function</strong> is a pipe that doesn&rsquo;t leak, and in essence cannot be mutated.
-Some of the benefits of using a pure function clarity,
-cleanliness, the job is done more percisely. Moreover, it will not unintentionally
-effect scripts running in other parts of your code.</p>
-
-          <h1 id="hoist">Hoist</h1>
-<pre class="highlight javascript"><code><span class="mi">1</span><span class="p">.</span>
-<span class="c1">//Before Hoist</span>
-<span class="kd">var</span> <span class="nx">name</span> <span class="o">=</span> <span class="s2">"Warren"</span><span class="p">;</span>
-
-<span class="c1">//After Hoist</span>
-<span class="kd">var</span> <span class="nx">name</span><span class="p">;</span> <span class="c1">// This is the declaration</span>
-<span class="nx">name</span> <span class="o">=</span> <span class="s2">"Warren"</span><span class="p">;</span> <span class="c1">//This is the assignment</span>
-
-
-</code></pre><pre class="highlight javascript"><code> <span class="mi">2</span><span class="p">.</span>
-<span class="nx">__Before</span> <span class="nx">Hoist__</span>
-
-<span class="kd">var</span> <span class="nx">parkour</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span>
-<span class="kd">var</span> <span class="nx">iDeclareBankruptcy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span>
-
-
-<span class="nx">__After__Hoist__</span>
-<span class="kd">function</span> <span class="nx">parkour</span><span class="p">(){}</span> <span class="c1">//Hoisted function declaration</span>
-<span class="kd">function</span> <span class="nx">iDeclareBankruptcy</span><span class="p">(){}</span> <span class="c1">//Hoisted function declaration</span>
-
-<span class="kd">var</span> <span class="nx">parkour</span><span class="p">;</span> <span class="c1">//Hoisted variable declaration</span>
-<span class="kd">var</span> <span class="nx">iDeclareBankruptcy</span><span class="p">;</span> <span class="c1">//Hoisted variable declaration</span>
-
-<span class="nx">parkour</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span> <span class="c1">// Function expression</span>
-<span class="nx">iDeclareBankruptcy</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){}</span> <span class="c1">// Function expression</span>
-
-</code></pre>
-<p><strong>1.</strong></p>
-
-<ul>
-<li><p>Hoisting is when JavaScript <strong>splits</strong> the variable and function declarations and moves them to the top of the container scope
-, while retaining the same order.</p></li>
-<li><p>Hoisting is made to organize code and used for the browser to understand
-function and variable declarations before page is fully loaded.</p></li>
-</ul>
-<pre class="highlight javascript"><code><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">returnTwo</span><span class="p">());</span>
-
-<span class="kd">function</span> <span class="nx">returnTwo</span><span class="p">(){</span> <span class="c1">//all this WILL be moved to the top</span>
-  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-<span class="kd">var</span> <span class="nx">returnTwo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(){</span><span class="c1">//only var returnTwo; will be moved to the top, the assignment stays right here</span>
-  <span class="k">return</span> <span class="mi">2</span><span class="p">;</span>
-<span class="p">}</span>
-
-
-
-</code></pre>
-<ul>
-<li>Functions are hoisted first, before variables.</li>
-</ul>
-
-<p><strong>2.</strong></p>
-
-<ul>
-<li><p>Functions have higher declaration priorities over variable declarations.</p></li>
-<li><p>Function declarations are moved at the very top of the scope and variable declarations are placed after.</p></li>
-</ul>
-
-<h2 id="declarations-within-conditionals-if-else">Declarations within conditionals (if/else)</h2>
-<pre class="highlight javascript"><code>
-<span class="nx">__Before</span> <span class="nx">Hoist__</span>
-<span class="kd">var</span> <span class="nx">oranges</span> <span class="o">=</span> <span class="s2">"fruit"</span><span class="p">;</span>
-
-<span class="kd">function</span> <span class="nx">eatFood</span><span class="p">(</span><span class="nx">x</span><span class="p">)</span> <span class="p">{</span>
-  <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="k">if</span> <span class="p">(</span><span class="nx">oranges</span><span class="p">)</span> <span class="p">{</span>
-  <span class="nx">eatFood</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="nx">__After__Hoist__</span>
-
-<span class="kd">function</span> <span class="nx">eatFood</span><span class="p">(</span><span class="nx">x</span><span class="p">){</span>  <span class="c1">// Brought function declaration on top of variable declaration because priority.</span>
-    <span class="k">return</span> <span class="nx">x</span> <span class="o">+</span> <span class="mi">1</span><span class="p">;</span>
-<span class="p">}</span>
-<span class="kd">var</span> <span class="nx">oranges</span> <span class="o">=</span> <span class="s2">"fruit"</span><span class="p">;</span>
-
-
-<span class="k">if</span> <span class="p">(</span><span class="nx">oranges</span><span class="p">)</span> <span class="p">{</span> <span class="c1">// If statement still reminds at bottom of function</span>
-  <span class="nx">eatFood</span><span class="p">(</span><span class="mi">25</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-
-<span class="o">*</span> <span class="nx">Whether</span> <span class="nx">before</span> <span class="nx">or</span> <span class="nx">after</span> <span class="nx">hoist</span><span class="p">,</span> <span class="nx">the</span> <span class="s1">'if'</span> <span class="nx">statement</span> <span class="nx">remains</span>
-<span class="nx">untouched</span> <span class="nx">and</span> <span class="nx">all</span> <span class="nx">declarations</span> <span class="nx">are</span> <span class="nx">still</span> <span class="nx">accessible</span><span class="p">.</span>
-
-
-
-</code></pre>
-          <h1 id="this">This</h1>
-<pre class="highlight javascript"><code>
-    <span class="c1">// Here, 'this' refers to the function named Student. </span>
-
-    <span class="c1">// We can access properties/methods of</span>
-    <span class="c1">// 'this' using dot notation. Below, 'this.name'</span>
-    <span class="c1">// refers to the name property of the function named 'Student'.</span>
-
-    <span class="kd">var</span> <span class="nx">person</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="na">firstName</span><span class="p">:</span> <span class="s2">"John"</span><span class="p">,</span>
-        <span class="na">lastName</span><span class="p">:</span> <span class="s2">"Barrymore"</span><span class="p">,</span>
-        <span class="na">showFullName</span><span class="p">:</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
-
-    <span class="c1">// Since the showFullName function is a method of the </span>
-    <span class="c1">// 'person' object, its 'this' is exactly the same!</span>
-
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">""</span> <span class="o">+</span> <span class="k">this</span><span class="p">.</span><span class="nx">lastName</span><span class="p">);</span>
-
-            <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">person</span><span class="p">.</span><span class="nx">firstName</span> <span class="o">+</span> <span class="s2">""</span> <span class="o">+</span> <span class="nx">person</span><span class="p">.</span><span class="nx">lastName</span><span class="p">);</span>
-
-        <span class="p">}</span>
-    <span class="p">}</span>
-
-    <span class="nx">person</span><span class="p">.</span><span class="nx">showFullName</span><span class="p">();</span>
-
-</code></pre>
-<p>In javascript, &lsquo;this&rsquo; is used to reference the thing (object/function) in which it is being used.</p>
-
-<p>We can use &#39;this&rsquo; in the same way we use pronouns like &#39;He&rsquo; or &#39;She&rsquo; in English. E.G:</p>
-
-<p>&rsquo;<strong>John</strong> ate fish &amp; chips for lunch. <strong>He</strong> likes fish &amp; chips&rsquo;.</p>
-
-<p>In the above example, both &#39;John&rsquo; and &#39;He&rsquo; refer to the same person. We first use the name &#39;John&rsquo; to let the reader
-know who we are referring to. However, once the person we are referring to has been established in the first sentence, we can simply use &#39;He&rsquo; as a reference for John in subsequent sentences.</p>
-
-<p>When used within a function or object, &#39;this&rsquo; refers to the function or object itself. (See example in sidebar).</p>
-
-<h2 id="in-global-scope">In Global Scope</h2>
-<pre class="highlight javascript"><code>
-    <span class="c1">// Below is an example of 'this' being used to refer to the global object.</span>
-
-    <span class="c1">// In a browser, the global object is the window.</span>
-
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="k">this</span><span class="p">);</span> <span class="c1">// logs the window object.</span>
-</code></pre>
-<p>When used in the global scope (i.e. not within a function or object), &#39;this&rsquo; refers to the global object.</p>
-
-<p>In a browser, the global object is the window. </p>
-
-          <h1 id="truthiness">Truthiness</h1>
-
-<p>A truthy value is a value that translates to true when evaluated in a Boolean context. All values are truthy unless they are defined as falsy (i.e., except for false, 0, &ldquo;&rdquo;, null, undefined, and NaN).</p>
-<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
-<span class="p">}</span>
-<span class="k">if</span> <span class="p">({})</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="mi">42</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="k">if</span> <span class="p">(</span><span class="o">-</span><span class="kc">Infinity</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-
-<span class="c1">// undefined</span>
-</code></pre>
-<h2 id="falsiness">Falsiness</h2>
-
-<p>Using Boolean with the value of true or false, a falsyness will always be evaluated to false</p>
-<pre class="highlight javascript"><code><span class="k">if</span> <span class="p">(</span><span class="kc">false</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="kc">null</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="kc">undefined</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="mi">0</span><span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">);</span>
-<span class="p">}</span>
-
-</code></pre>
-          <h1 id="coercion">Coercion</h1>
-
-<p>Where there are different data types, one data type will be changed to an &lsquo;equivalent value &rsquo;
-of the other data type</p>
-
-<p>Use strict equality operators (=== !==) to ensure the values converted are equaled
-to avoid causing error</p>
-<pre class="highlight javascript"><code><span class="mi">1</span> <span class="o">+</span><span class="s1">'2'</span><span class="p">;</span> <span class="c1">//12</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="kc">null</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">)</span>
-<span class="p">}</span> <span class="p">;</span> <span class="c1">//false</span>
-
-<span class="k">if</span> <span class="p">(</span><span class="mi">1</span> <span class="o">===</span> <span class="s1">'1'</span><span class="p">)</span> <span class="p">{</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will not get here'</span><span class="p">)</span>
-<span class="p">}</span> <span class="p">;</span> <span class="c1">//false </span>
-
-<span class="k">if</span> <span class="p">(</span><span class="kc">null</span> <span class="o">||</span> <span class="p">(</span><span class="mi">4</span> <span class="o">===</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)</span> <span class="p">){</span>
-    <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">'we will get here'</span><span class="p">);</span>  
-<span class="p">};</span> <span class="c1">// true</span>
-
-
-</code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
-                <a href="#" data-language-name="javascript">javascript</a>
+                <a href="#" data-language-name="html">html</a>
           </div>
       </div>
     </div>
