@@ -12,6 +12,7 @@ includes:
   - elements
   - attributes
   - structure
+  - filesystem
   - contributing
 
 search: true
