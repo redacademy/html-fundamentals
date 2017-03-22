@@ -203,6 +203,71 @@ Like word processing documents, HTML documents specify the shape and style of th
 </code></pre>
 <p>The body contains the content of the page, built using <a href="#elements">HTML Elements</a>.</p>
 
+          <h1 id="understanding-html-structure">Understanding HTML Structure</h1>
+
+<p>HTML documents have a strict <strong>hierarchy</strong>.</p>
+
+<p>To understand with this means, let&rsquo;s explore two ways of modelling the document we defined in the previous example: <strong>trees</strong> and <strong>nesting boxes</strong>.</p>
+
+<h2 id="trees">Trees</h2>
+<pre class="highlight plaintext"><code>                    HTML Document Tree
+
+                           html
+                            |
+             -----------------------------------
+             |                                  |
+           head                                body
+             |                                  |
+  ---------------------------           ---------------------
+  |       |         |       |           |        |           |
+title  link(x2)  script  meta(x3)     header    div       footer
+                                        |        |           |
+                                       h1    ---------       p
+                                             |        |
+                                             h2       p
+
+</code></pre>
+<p>One of the most common ways to model hierarchy is by using a <strong>tree</strong> (similar to family trees).
+In fact, this is how CSS and JavaScript understand HTML!</p>
+
+<p>The tree on the right is just another way of modeling the document defined in the previous example.</p>
+
+<p>Some helpful tree terminology:</p>
+
+<ul>
+<li>An element directly above another is its <strong>parent</strong></li>
+<li>An element directly below another is its <strong>child</strong></li>
+<li>Any elements higher in the tree than an element are its <strong>ancestors</strong></li>
+<li>Any elements lower in the tree than an element are its <strong>descendants</strong></li>
+<li>Any elements at the same level of the tree and with the <em>same parent</em> are <strong>siblings</strong></li>
+</ul>
+
+<h2 id="nesting-boxes">Nesting Boxes</h2>
+<pre class="highlight plaintext"><code>|-------- html -----------------------------------------|
+|                                                       |
+|  |---- head ---------------------------------|        |
+|  | _______  _________   _______   _________  |        |
+|  | |title|  |link x 2|  |script|  |meta x 3| |        |
+|  | ⎻⎻⎻⎻⎻⎻⎻  ⎻⎻⎻⎻⎻⎻⎻⎻⎻   ⎻⎻⎻⎻⎻⎻⎻   ⎻⎻⎻⎻⎻⎻⎻⎻⎻  |        |
+|  |-------------------------------------------|        |
+|                                                       |
+|  |---- body ---------------------------------------|  |
+|  |                                                 |  |
+|  |  |- header -|  |---- div -----|  |-- header -|  |  |
+|  |  |  _____   |  |  _____  ___  |  |   ______  |  |  |
+|  |  | | h1 |   |  | | h2 | | p | |  |   | h1 |  |  |  |
+|  |  |  ⎻⎻⎻⎻⎻   |  |  ⎻⎻⎻⎻⎻  ⎻⎻⎻  |  |   ⎻⎻⎻⎻⎻⎻  |  |  |
+|  |  |----------|  |--------------|  |-----------|  |  |
+|  |-------------------------------------------------|  |
+|                                                       |
+|-------------------------------------------------------|
+</code></pre>
+<p>Heirarchy can also be modelled as nesting boxes, which is a nice way of understanding which elements are the <em>owners</em> of other elements.</p>
+
+<p>Elements <em>own</em> or <em>contain</em> <strong>all of their descendants</strong>.</p>
+
+<p>Nesting Boxes is how the browser renders HTML. <strong>Rendering</strong> is the act of transforming code into what is shown on the monitor.</p>
+
           <h1 id="elements">Elements</h1>
 <pre class="highlight html"><code><span class="c">&lt;!-- Format: --&gt;</span>
 <span class="nt">&lt;element&gt;</span>
@@ -271,313 +336,6 @@ and <em>closed</em> when you  right the tag again, this time with a forward slas
 Because of this, they don&rsquo;t require a closing tag.</p>
 
 <p><a target="_blank" href="http://codepen.io/bwt604RED/pen/NpYdQj">View in Codepen</a></p>
-
-<h2 id="reference">Reference</h2>
-<pre class="highlight html"><code><span class="c">&lt;!-- List examples --&gt;</span>
-<span class="nt">&lt;ol&gt;</span>
-  <span class="nt">&lt;li&gt;</span>This will be an ordered (numbered) list<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>You can have as many items as you need<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ol&gt;</span>
-
-<span class="nt">&lt;ul&gt;</span>
-  <span class="nt">&lt;li&gt;</span>This will be an unordered (bullet) list<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;li&gt;</span>You can have as many items as you need<span class="nt">&lt;/li&gt;</span>
-<span class="nt">&lt;/ul&gt;</span>
-
-<span class="c">&lt;!-- Grouping Examples --&gt;</span>
-<span class="nt">&lt;div&gt;</span>
-  DIV elements are used for grouping elements. You can add text...
-  <span class="nt">&lt;p&gt;</span>
-    But it is usually better to add text within
-    <span class="nt">&lt;em&gt;</span>typography elements<span class="nt">&lt;/em&gt;</span>
-    like paragraphs.
-  <span class="nt">&lt;/p&gt;</span>
-<span class="nt">&lt;/div&gt;</span>
-
-<span class="nt">&lt;header&gt;</span>
-  HTML5 gave us more semantic elements like <span class="nt">&lt;em&gt;</span>Header<span class="nt">&lt;/em&gt;</span>.
-  It acts the same as div, but its name gives us an idea of what it <span class="nt">&lt;em&gt;</span>does<span class="nt">&lt;/em&gt;</span>.
-
-  <span class="nt">&lt;ul</span> <span class="na">class=</span><span class="s">"menu"</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;li&gt;</span>Home<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;</span>About<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;</span>Pricing<span class="nt">&lt;/li&gt;</span>
-    <span class="nt">&lt;li&gt;</span>Contact<span class="nt">&lt;/li&gt;</span>
-  <span class="nt">&lt;/ul&gt;</span>
-<span class="nt">&lt;/header&gt;</span>
-
-<span class="c">&lt;!-- Form Example --&gt;</span>
-<span class="nt">&lt;form&gt;</span>
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"username"</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"username"</span><span class="nt">&gt;</span> <span class="nt">&lt;br&gt;</span>
-
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
-  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span><span class="nt">&gt;</span> <span class="nt">&lt;br&gt;</span>
-
-  <span class="nt">&lt;select&gt;</span>
-    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
-    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
-    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
-    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
-  <span class="nt">&lt;/select&gt;</span> <span class="nt">&lt;br&gt;</span>
-
-  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"description"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;br&gt;</span>
-  <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
-<span class="nt">&lt;/form&gt;</span>
-
-<span class="c">&lt;!-- Media Examples --&gt;</span>
-<span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"Second image"</span><span class="nt">&gt;</span>
-
-<span class="nt">&lt;audio</span> <span class="na">controls</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"horse.ogg"</span> <span class="na">type=</span><span class="s">"audio/ogg"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"horse.mp3"</span> <span class="na">type=</span><span class="s">"audio/mpeg"</span><span class="nt">&gt;</span>
-  Your browser does not support the audio tag.
-<span class="nt">&lt;/audio&gt;</span>
-
-<span class="nt">&lt;video</span> <span class="na">width=</span><span class="s">"320"</span> <span class="na">height=</span><span class="s">"240"</span> <span class="na">controls</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"movie.mp4"</span> <span class="na">type=</span><span class="s">"video/mp4"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"movie.ogg"</span> <span class="na">type=</span><span class="s">"video/ogg"</span><span class="nt">&gt;</span>
-  Your browser does not support the video tag.
-<span class="nt">&lt;/video&gt;</span>
-</code></pre>
-<p>Here are some of the more common elements and their usage.
-There are many more, but this should get you started!</p>
-
-<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/vxRxBO">View Examples in Codepen</a></p>
-
-<p><strong>Typography</strong></p>
-
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Example</th>
-<th>Type</th>
-<th>Void</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Heading 1</td>
-<td><code class="prettyprint">&lt;h1&gt;Main Heading&lt;/h1&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Heading 2</td>
-<td><code class="prettyprint">&lt;h2&gt;Secondary Heading&lt;/h2&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Heading 3</td>
-<td><code class="prettyprint">&lt;h3&gt;Smaller than h2&lt;/h3&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Heading 4</td>
-<td><code class="prettyprint">&lt;h4&gt;Smaller than h3&lt;/h4&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Heading 5</td>
-<td><code class="prettyprint">&lt;h5&gt;Smaller than h4&lt;/h5&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Heading 6</td>
-<td><code class="prettyprint">&lt;h6&gt;Smaller than h5&lt;/h6&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Paragraph</td>
-<td><code class="prettyprint">&lt;p&gt;This is where we place regular text&lt;/p&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Strong</td>
-<td><code class="prettyprint">&lt;p&gt;One word will be &lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Emphasis</td>
-<td><code class="prettyprint">&lt;p&gt;One word will be &lt;em&gt;emphasized&lt;/em&gt;&lt;/p&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Span</td>
-<td><code class="prettyprint">&lt;p&gt;One word can be &lt;span&gt;styled&lt;/span&gt;&lt;/p&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Line Break</td>
-<td><code class="prettyprint">&lt;p&gt;This will be on &lt;br&gt; 2 lines&lt;/p&gt;</code></td>
-<td>Inline</td>
-<td>True</td>
-</tr>
-</tbody></table>
-
-<p><strong>Lists</strong></p>
-
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Example</th>
-<th>Type</th>
-<th>Void</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Ordered List</td>
-<td><code class="prettyprint">&lt;ol&gt;&lt;/ol&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Unordered List</td>
-<td><code class="prettyprint">&lt;ul&gt;&lt;/ul&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>List Item</td>
-<td><code class="prettyprint">&lt;li&gt;&lt;/li&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-</tbody></table>
-
-<p><strong>Grouping</strong></p>
-
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Example</th>
-<th>Type</th>
-<th>Void</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Header</td>
-<td><code class="prettyprint">&lt;header&gt;&lt;/header&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Footer</td>
-<td><code class="prettyprint">&lt;footer&gt;&lt;/footer&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Division</td>
-<td><code class="prettyprint">&lt;div&gt;&lt;/div&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Section</td>
-<td><code class="prettyprint">&lt;section&gt;&lt;/section&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Article</td>
-<td><code class="prettyprint">&lt;article&gt;&lt;/article&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-</tbody></table>
-
-<p><strong>Forms</strong></p>
-
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Example</th>
-<th>Type</th>
-<th>Void</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Form</td>
-<td><code class="prettyprint">&lt;form&gt;&lt;/form&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Input</td>
-<td><code class="prettyprint">&lt;input&gt;</code></td>
-<td>Inline</td>
-<td>True</td>
-</tr>
-<tr>
-<td>Dropdown Menu (Select)</td>
-<td><code class="prettyprint">&lt;select&gt;&lt;/select&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Dropdown Menu Option</td>
-<td><code class="prettyprint">&lt;option&gt;&lt;/option&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Large Text Box</td>
-<td><code class="prettyprint">&lt;textarea&gt;&lt;/textarea&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Input Label</td>
-<td><code class="prettyprint">&lt;label&gt;&lt;/label&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Button</td>
-<td><code class="prettyprint">&lt;button&gt;&lt;/button&gt;</code></td>
-<td>Inline</td>
-<td>False</td>
-</tr>
-</tbody></table>
-
-<p><strong>Media</strong></p>
-
-<table><thead>
-<tr>
-<th>Element</th>
-<th>Example</th>
-<th>Type</th>
-<th>Void</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>Image</td>
-<td><code class="prettyprint">&lt;img&gt;</code></td>
-<td>Inline</td>
-<td>True</td>
-</tr>
-<tr>
-<td>Audio</td>
-<td><code class="prettyprint">&lt;audio&gt;&lt;/audio&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-<tr>
-<td>Video</td>
-<td><code class="prettyprint">&lt;video&gt;&lt;/video&gt;</code></td>
-<td>Block</td>
-<td>False</td>
-</tr>
-</tbody></table>
 
           <h1 id="attributes">Attributes</h1>
 <pre class="highlight html"><code><span class="c">&lt;!-- This tag has a 'class' attribute, its value is 'header' --&gt;</span>
@@ -694,68 +452,364 @@ Don&rsquo;t leave spaces on either side of the <code class="prettyprint">=</code
 
 <p><strong>NOTE</strong>: When naming classes and IDs, use <code class="prettyprint">kebab-case</code> (lowercase with hyphens)</p>
 
-          <h1 id="understanding-html-structure">Understanding HTML Structure</h1>
+          <h1 id="element-reference">Element Reference</h1>
 
-<p>HTML documents have a strict <strong>hierarchy</strong>.</p>
-
-<p>To understand with this means, let&rsquo;s explore two ways of modelling the document we defined in the previous example: <strong>trees</strong> and <strong>nesting boxes</strong>.</p>
-
-<h2 id="trees">Trees</h2>
-<pre class="highlight plaintext"><code>                    HTML Document Tree
-
-                           html
-                            |
-             -----------------------------------
-             |                                  |
-           head                                body
-             |                                  |
-  ---------------------------           ---------------------
-  |       |         |       |           |        |           |
-title  link(x2)  script  meta(x3)     header    div       footer
-                                        |        |           |
-                                       h1    ---------       p
-                                             |        |
-                                             h2       p
-
+<h2 id="typography">Typography</h2>
+<pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>Main Heading<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;h2&gt;</span>Secondary Heading<span class="nt">&lt;/h2&gt;</span>
+<span class="nt">&lt;h3&gt;</span>Smaller than h2<span class="nt">&lt;/h3&gt;</span>
+<span class="nt">&lt;h4&gt;</span>Smaller than h3<span class="nt">&lt;/h4&gt;</span>
+<span class="nt">&lt;h5&gt;</span>Smaller than h4<span class="nt">&lt;/h5&gt;</span>
+<span class="nt">&lt;h6&gt;</span>Smaller than h5<span class="nt">&lt;/h6&gt;</span>
+<span class="nt">&lt;p&gt;</span>This is where we place regular text<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>One word will be <span class="nt">&lt;strong&gt;</span>bold<span class="nt">&lt;/strong&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>One word can be <span class="nt">&lt;span&gt;</span>styled<span class="nt">&lt;/span&gt;&lt;/p&gt;</span>
+<span class="nt">&lt;p&gt;</span>This will be on <span class="nt">&lt;br&gt;</span> 2 lines<span class="nt">&lt;/p&gt;</span>
 </code></pre>
-<p>One of the most common ways to model hierarchy is by using a <strong>tree</strong> (similar to family trees).
-In fact, this is how CSS and JavaScript understand HTML!</p>
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Heading 1</td>
+<td><code class="prettyprint">&lt;h1&gt;Main Heading&lt;/h1&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 2</td>
+<td><code class="prettyprint">&lt;h2&gt;Secondary Heading&lt;/h2&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 3</td>
+<td><code class="prettyprint">&lt;h3&gt;Smaller than h2&lt;/h3&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 4</td>
+<td><code class="prettyprint">&lt;h4&gt;Smaller than h3&lt;/h4&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 5</td>
+<td><code class="prettyprint">&lt;h5&gt;Smaller than h4&lt;/h5&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Heading 6</td>
+<td><code class="prettyprint">&lt;h6&gt;Smaller than h5&lt;/h6&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Paragraph</td>
+<td><code class="prettyprint">&lt;p&gt;This is where we place regular text&lt;/p&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Strong</td>
+<td><code class="prettyprint">&lt;p&gt;One word will be &lt;strong&gt;bold&lt;/strong&gt;&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Emphasis</td>
+<td><code class="prettyprint">&lt;p&gt;One word will be &lt;em&gt;emphasized&lt;/em&gt;&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Span</td>
+<td><code class="prettyprint">&lt;p&gt;One word can be &lt;span&gt;styled&lt;/span&gt;&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Line Break</td>
+<td><code class="prettyprint">&lt;p&gt;This will be on &lt;br&gt; 2 lines&lt;/p&gt;</code></td>
+<td>Inline</td>
+<td>True</td>
+</tr>
+</tbody></table>
 
-<p>The tree on the right is just another way of modeling the document defined in the previous example.</p>
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/QprbJX">View in Codepen</a></p>
 
-<p>Some helpful tree terminology:</p>
+<h2 id="grouping">Grouping</h2>
+<pre class="highlight html"><code><span class="nt">&lt;div&gt;</span>
+  DIV elements are used for arbitrarily grouping elements. You can add plain text...
+  <span class="nt">&lt;p&gt;</span>
+    But it is usually better to add text within
+    <span class="nt">&lt;em&gt;</span>typography elements<span class="nt">&lt;/em&gt;</span>
+    like paragraphs.
+  <span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
 
-<ul>
-<li>An element directly above another is its <strong>parent</strong></li>
-<li>An element directly below another is its <strong>child</strong></li>
-<li>Any elements higher in the tree than an element are its <strong>ancestors</strong></li>
-<li>Any elements lower in the tree than an element are its <strong>descendants</strong></li>
-<li>Any elements at the same level of the tree and with the <em>same parent</em> are <strong>siblings</strong></li>
-</ul>
+<span class="nt">&lt;header&gt;</span>
+  <span class="nt">&lt;p&gt;</span>
+    HTML5 gave us more semantic elements like <span class="nt">&lt;strong&gt;</span>header<span class="nt">&lt;/strong&gt;</span>.
+    It acts the same as div, but its name gives us an idea of what it <span class="nt">&lt;em&gt;</span>does<span class="nt">&lt;/em&gt;</span>.
+  <span class="nt">&lt;/p&gt;</span>
 
-<h2 id="nesting-boxes">Nesting Boxes</h2>
-<pre class="highlight plaintext"><code>|-------- html -----------------------------------------|
-|                                                       |
-|  |---- head ---------------------------------|        |
-|  | _______  _________   _______   _________  |        |
-|  | |title|  |link x 2|  |script|  |meta x 3| |        |
-|  | ⎻⎻⎻⎻⎻⎻⎻  ⎻⎻⎻⎻⎻⎻⎻⎻⎻   ⎻⎻⎻⎻⎻⎻⎻   ⎻⎻⎻⎻⎻⎻⎻⎻⎻  |        |
-|  |-------------------------------------------|        |
-|                                                       |
-|  |---- body ---------------------------------------|  |
-|  |                                                 |  |
-|  |  |- header -|  |---- div -----|  |-- header -|  |  |
-|  |  |  _____   |  |  _____  ___  |  |   ______  |  |  |
-|  |  | | h1 |   |  | | h2 | | p | |  |   | h1 |  |  |  |
-|  |  |  ⎻⎻⎻⎻⎻   |  |  ⎻⎻⎻⎻⎻  ⎻⎻⎻  |  |   ⎻⎻⎻⎻⎻⎻  |  |  |
-|  |  |----------|  |--------------|  |-----------|  |  |
-|  |-------------------------------------------------|  |
-|                                                       |
-|-------------------------------------------------------|
+  <span class="nt">&lt;p&gt;</span>
+    For example, <span class="nt">&lt;strong&gt;</span>headers<span class="nt">&lt;/strong&gt;</span> often contain site navigation, which we can define using the <span class="nt">&lt;strong&gt;</span>nav<span class="nt">&lt;/strong&gt;</span> element:
+  <span class="nt">&lt;/p&gt;</span>
+
+  <span class="nt">&lt;nav&gt;</span>
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/html/"</span><span class="nt">&gt;</span>HTML<span class="nt">&lt;/a&gt;</span> |
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/css/"</span><span class="nt">&gt;</span>CSS<span class="nt">&lt;/a&gt;</span> |
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/js/"</span><span class="nt">&gt;</span>JavaScript<span class="nt">&lt;/a&gt;</span> |
+    <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"/jquery/"</span><span class="nt">&gt;</span>jQuery<span class="nt">&lt;/a&gt;</span>
+  <span class="nt">&lt;/nav&gt;</span>
+<span class="nt">&lt;/header&gt;</span>
+
+<span class="nt">&lt;article&gt;</span>
+  <span class="nt">&lt;section&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>When do we use section?<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p&gt;</span>It's really up to you. The name section implies that it is a <span class="nt">&lt;em&gt;</span>section<span class="nt">&lt;/em&gt;</span> of something, so you shouldn't use a single section on a page.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+
+  <span class="nt">&lt;section&gt;</span>
+    <span class="nt">&lt;h2&gt;</span>Do sections have to be part of an article?<span class="nt">&lt;/h2&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Nope! Though they <span class="nt">&lt;em&gt;</span>can<span class="nt">&lt;/em&gt;</span> be. <span class="nt">&lt;strong&gt;</span>Articles<span class="nt">&lt;/strong&gt;</span> can also be part of sections - it depends on how you structure your page.<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/section&gt;</span>
+<span class="nt">&lt;/article&gt;</span>
+
+<span class="nt">&lt;aside&gt;</span>
+  <span class="nt">&lt;h4&gt;</span>Many sites also have content that is related to the main content.<span class="nt">&lt;/h4&gt;</span>
+  <span class="nt">&lt;p&gt;</span>That's where we can use the aside element.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/aside&gt;</span>
+
+<span class="nt">&lt;footer&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Most sites also contain a footer. Footers sometimes contain their own navigation, and maybe some contact info:<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;p&gt;</span>Contact information: <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"mailto:someone@example.com"</span><span class="nt">&gt;</span>
+  someone@example.com<span class="nt">&lt;/a&gt;</span>.<span class="nt">&lt;/p&gt;</span>
+<span class="nt">&lt;/footer&gt;</span>
 </code></pre>
-<p>Heirarchy can also be modelled as nesting boxes, which is a nice way of understanding which elements are the <em>owners</em> of other elements.</p>
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Header</td>
+<td><code class="prettyprint">&lt;header&gt;&lt;/header&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Footer</td>
+<td><code class="prettyprint">&lt;footer&gt;&lt;/footer&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Division</td>
+<td><code class="prettyprint">&lt;div&gt;&lt;/div&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Section</td>
+<td><code class="prettyprint">&lt;section&gt;&lt;/section&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Article</td>
+<td><code class="prettyprint">&lt;article&gt;&lt;/article&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Navigation</td>
+<td><code class="prettyprint">&lt;nav&gt;&lt;/nav&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Aside</td>
+<td><code class="prettyprint">&lt;aside&gt;&lt;/aside&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+</tbody></table>
 
-<p>Elements <em>own</em> or <em>contain</em> <strong>all of their descendants</strong>.</p>
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/gmzpZB">View in Codepen</a></p>
+
+<h2 id="lists">Lists</h2>
+<pre class="highlight html"><code><span class="nt">&lt;ol&gt;</span>
+  <span class="nt">&lt;li&gt;</span>This will be an ordered (numbered) list<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>You can have as many items as you need<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ol&gt;</span>
+
+<span class="nt">&lt;ul&gt;</span>
+  <span class="nt">&lt;li&gt;</span>This will be an unordered (bullet) list<span class="nt">&lt;/li&gt;</span>
+  <span class="nt">&lt;li&gt;</span>You can have as many items as you need<span class="nt">&lt;/li&gt;</span>
+<span class="nt">&lt;/ul&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Ordered List</td>
+<td><code class="prettyprint">&lt;ol&gt;&lt;/ol&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Unordered List</td>
+<td><code class="prettyprint">&lt;ul&gt;&lt;/ul&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>List Item</td>
+<td><code class="prettyprint">&lt;li&gt;&lt;/li&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/OpZNqr">View in Codepen</a></p>
+
+<h2 id="forms">Forms</h2>
+<pre class="highlight html"><code><span class="nt">&lt;form&gt;</span>
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"username"</span><span class="nt">&gt;</span>Username<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"username"</span><span class="nt">&gt;</span> <span class="nt">&lt;br&gt;</span>
+
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"password"</span><span class="nt">&gt;</span>Password<span class="nt">&lt;/label&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span><span class="nt">&gt;</span> <span class="nt">&lt;br&gt;</span>
+
+  <span class="nt">&lt;select&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"volvo"</span><span class="nt">&gt;</span>Volvo<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"saab"</span><span class="nt">&gt;</span>Saab<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"mercedes"</span><span class="nt">&gt;</span>Mercedes<span class="nt">&lt;/option&gt;</span>
+    <span class="nt">&lt;option</span> <span class="na">value=</span><span class="s">"audi"</span><span class="nt">&gt;</span>Audi<span class="nt">&lt;/option&gt;</span>
+  <span class="nt">&lt;/select&gt;</span> <span class="nt">&lt;br&gt;</span>
+
+  <span class="nt">&lt;label</span> <span class="na">for=</span><span class="s">"description"</span><span class="nt">&gt;</span>Description<span class="nt">&lt;/label&gt;</span> <span class="nt">&lt;br&gt;</span>
+  <span class="nt">&lt;textarea</span> <span class="na">id=</span><span class="s">"description"</span><span class="nt">&gt;&lt;/textarea&gt;</span>
+<span class="nt">&lt;/form&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Form</td>
+<td><code class="prettyprint">&lt;form&gt;&lt;/form&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Input</td>
+<td><code class="prettyprint">&lt;input&gt;</code></td>
+<td>Inline</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Dropdown Menu (Select)</td>
+<td><code class="prettyprint">&lt;select&gt;&lt;/select&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Dropdown Menu Option</td>
+<td><code class="prettyprint">&lt;option&gt;&lt;/option&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Large Text Box</td>
+<td><code class="prettyprint">&lt;textarea&gt;&lt;/textarea&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Input Label</td>
+<td><code class="prettyprint">&lt;label&gt;&lt;/label&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Button</td>
+<td><code class="prettyprint">&lt;button&gt;&lt;/button&gt;</code></td>
+<td>Inline</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/wJjWGV">View in Codepen</a></p>
+
+<h2 id="media">Media</h2>
+<pre class="highlight html"><code><span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"Second image"</span><span class="nt">&gt;</span>
+
+<span class="nt">&lt;audio</span> <span class="na">controls</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"https://www.w3schools.com/tags/horse.ogg"</span> <span class="na">type=</span><span class="s">"audio/ogg"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"https://www.w3schools.com/tags/horse.mp3"</span> <span class="na">type=</span><span class="s">"audio/mpeg"</span><span class="nt">&gt;</span>
+  Your browser does not support the audio tag.
+<span class="nt">&lt;/audio&gt;</span>
+
+<span class="nt">&lt;video</span> <span class="na">width=</span><span class="s">"320"</span> <span class="na">height=</span><span class="s">"240"</span> <span class="na">controls</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"https://www.w3schools.com/tags/movie.mp4"</span> <span class="na">type=</span><span class="s">"video/mp4"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;source</span> <span class="na">src=</span><span class="s">"https://www.w3schools.com/tags/movie.ogg"</span> <span class="na">type=</span><span class="s">"video/ogg"</span><span class="nt">&gt;</span>
+  Your browser does not support the video tag.
+<span class="nt">&lt;/video&gt;</span>
+</code></pre>
+<table><thead>
+<tr>
+<th>Element</th>
+<th>Example</th>
+<th>Type</th>
+<th>Void</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Image</td>
+<td><code class="prettyprint">&lt;img&gt;</code></td>
+<td>Inline</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td><code class="prettyprint">&lt;audio&gt;&lt;/audio&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Video</td>
+<td><code class="prettyprint">&lt;video&gt;&lt;/video&gt;</code></td>
+<td>Block</td>
+<td>False</td>
+</tr>
+</tbody></table>
+
+<p>Here are some of the more common elements and their usage.
+There are many more, but this should get you started!</p>
+
+<p><a target="_blank" href="http://codepen.io/bwt604RED/pen/VpxmeP">View Examples in Codepen</a></p>
 
           <h1 id="setting-up-a-project">Setting Up a Project</h1>
 <pre class="highlight plaintext"><code>project-folder
