@@ -64,3 +64,5 @@ Some helpful tree terminology:
 Heirarchy can also be modelled as nesting boxes, which is a nice way of understanding which elements are the _owners_ of other elements.
 
 Elements _own_ or _contain_ __all of their descendants__.
+
+Nesting Boxes is how the browser renders HTML. __Rendering__ is the act of transforming code into what is shown on the monitor.

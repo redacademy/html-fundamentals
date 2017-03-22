@@ -9,9 +9,10 @@ toc_footers:
 
 includes:
   - document
+  - structure
   - elements
   - attributes
-  - structure
+  - element_reference
   - filesystem
   - contributing
 
