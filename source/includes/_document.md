@@ -11,7 +11,7 @@
 When your browser loads an HTML file - anything with the `.html` extension - it renders a __document__.
 Like word processing documents, HTML documents specify the shape and style of their content.
 
-HTML Documents have a DOCTYPE and two sections: the __head__ and the __body__.
+HTML Documents have a __DOCTYPE__ and two sections: the __head__ and the __body__.
 
 ## DOCTYPE
 
@@ -45,7 +45,6 @@ The DOCTYPE tells the browser what version of HTML to expect. We use HTML5, whic
     <!-- These two are used for Search Engine Optimization -->
     <meta name="keywords" content="wood, furniture, garden, garden-table, etc.">
     <meta name="description" content="Official dealer of wooden garden furniture.">
-
   <head>
 
   <body></body>
@@ -89,6 +88,6 @@ The document head contains information about the document, including the documen
 </html>
 ```
 
-The body contains the content of the page, built using [HTML Elements](#elements).
+The body simply contains the content of the page, built using [HTML Elements](#elements).
 
 

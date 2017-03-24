@@ -65,4 +65,4 @@ Heirarchy can also be modelled as nesting boxes, which is a nice way of understa
 
 Elements _own_ or _contain_ __all of their descendants__.
 
-Nesting Boxes is how the browser renders HTML. __Rendering__ is the act of transforming code into what is shown on the monitor.
+When the browser renders HTML, the result looks very simlar to the Nesting Boxes model. __Rendering__ is the act of transforming code into what is shown on the monitor.

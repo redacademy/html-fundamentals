@@ -53,7 +53,7 @@ If you have more than three attributes, put them on separate lines.
 <img class="placeholder" src="http://placehold.it/150x150" alt="First image">
 ```
 
-__Attributes__ are always defined in the opening tag, and are an example of what we call __key/value pairs__.
+__Attributes__ are defined in the opening tag (as opposed to the closing tag), and are an example of what we call __key/value pairs__.
 
 In Example 1 to the right, the `p` element has __two attributes__, each __paired__ with a value.
 

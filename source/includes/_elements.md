@@ -24,7 +24,7 @@ __HTML Elements__ (AKA HTML Tags) are the objects we place within an HTML __docu
 
 They are specific words wrapped in angle brackets (`<` and `>`).
 We say that they are _opened_ when you write a tag, (ie. `<header>`),
-and _closed_ when you  right the tag again, this time with a forward slash (ie. `</header>`.
+and _closed_ when you write the tag again, this time with a forward slash (ie. `</header>`.
 
 ## Block Elements
 
@@ -47,6 +47,10 @@ In the example to the right, each element will be on its own horizontal section.
 ## Inline Elements
 
 ```html
+<!--
+  The strong and em tags will be in a line
+  with the plain text inside this paragraph tag
+-->
 <p>
   <strong>This strong text</strong>
   is beside this normal text
