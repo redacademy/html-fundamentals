@@ -122,6 +122,25 @@
 It is impossible to get all of the ideas, patterns, and syntax right away.
 This resource is here to help.</p>
 
+          <h1 id="why-html">Why HTML?</h1>
+
+<p><strong>HTML</strong> (HyperText Markup Language) is what we use to display content on web pages.
+It is (relatively) succinct, quick to learn, and implemented in a (more or less) standard way across every web browser, including browsers on mobile devices.</p>
+
+<p>This means that once you learn how to write well-formed HTML, it can be run on any device, anywhere.
+Don&rsquo;t underestimate how powerful that can be.</p>
+
+<p>HTML is not a programming language, as it doesn&rsquo;t <em>do</em> anything.
+It simply defines defines layouts using <a href="#elements">Elements</a> and their <a href="#attributes">Attributes</a>.
+HTML has more elements than you&rsquo;ll ever actually need.
+The purpose of this resource is to teach you some of the most common elements and how to use them.</p>
+
+<h2 id="using-this-resource">Using this Resource</h2>
+
+<p>Major topics are immediately visible in the navigation bar on the left.
+Sub-topics are exposed when you click a navigation item and when you scroll down the page.
+Code examples associated with the descriptions in the center column can be found in the right column.</p>
+
           <h1 id="the-document">The Document</h1>
 <pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="nt">&lt;html&gt;</span>
@@ -132,7 +151,7 @@ This resource is here to help.</p>
 <p>When your browser loads an HTML file - anything with the <code class="prettyprint">.html</code> extension - it renders a <strong>document</strong>.
 Like word processing documents, HTML documents specify the shape and style of their content.</p>
 
-<p>HTML Documents have a DOCTYPE and two sections: the <strong>head</strong> and the <strong>body</strong>.</p>
+<p>HTML Documents have a <strong>DOCTYPE</strong> and two sections: the <strong>head</strong> and the <strong>body</strong>.</p>
 
 <h2 id="doctype">DOCTYPE</h2>
 <pre class="highlight html"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
@@ -161,7 +180,6 @@ Like word processing documents, HTML documents specify the shape and style of th
     <span class="c">&lt;!-- These two are used for Search Engine Optimization --&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"keywords"</span> <span class="na">content=</span><span class="s">"wood, furniture, garden, garden-table, etc."</span><span class="nt">&gt;</span>
     <span class="nt">&lt;meta</span> <span class="na">name=</span><span class="s">"description"</span> <span class="na">content=</span><span class="s">"Official dealer of wooden garden furniture."</span><span class="nt">&gt;</span>
-
   <span class="nt">&lt;head&gt;</span>
 
   <span class="nt">&lt;body&gt;&lt;/body&gt;</span>
@@ -201,7 +219,7 @@ Like word processing documents, HTML documents specify the shape and style of th
   <span class="nt">&lt;/body&gt;</span>
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
-<p>The body contains the content of the page, built using <a href="#elements">HTML Elements</a>.</p>
+<p>The body simply contains the content of the page, built using <a href="#elements">HTML Elements</a>.</p>
 
           <h1 id="understanding-html-structure">Understanding HTML Structure</h1>
 
@@ -266,7 +284,7 @@ In fact, this is how CSS and JavaScript understand HTML!</p>
 
 <p>Elements <em>own</em> or <em>contain</em> <strong>all of their descendants</strong>.</p>
 
-<p>Nesting Boxes is how the browser renders HTML. <strong>Rendering</strong> is the act of transforming code into what is shown on the monitor.</p>
+<p>When the browser renders HTML, the result looks very simlar to the Nesting Boxes model. <strong>Rendering</strong> is the act of transforming code into what is shown on the monitor.</p>
 
           <h1 id="elements">Elements</h1>
 <pre class="highlight html"><code><span class="c">&lt;!-- Format: --&gt;</span>
@@ -291,7 +309,7 @@ In fact, this is how CSS and JavaScript understand HTML!</p>
 
 <p>They are specific words wrapped in angle brackets (<code class="prettyprint">&lt;</code> and <code class="prettyprint">&gt;</code>).
 We say that they are <em>opened</em> when you write a tag, (ie. <code class="prettyprint">&lt;header&gt;</code>),
-and <em>closed</em> when you  right the tag again, this time with a forward slash (ie. <code class="prettyprint">&lt;/header&gt;</code>.</p>
+and <em>closed</em> when you write the tag again, this time with a forward slash (ie. <code class="prettyprint">&lt;/header&gt;</code>.</p>
 
 <h2 id="block-elements">Block Elements</h2>
 <pre class="highlight html"><code><span class="nt">&lt;h1&gt;</span>The header of my documents<span class="nt">&lt;/h1&gt;</span>
@@ -309,7 +327,11 @@ and <em>closed</em> when you  right the tag again, this time with a forward slas
 <p><a target="_blank" href="http://codepen.io/bwt604RED/pen/evMgoK">View in Codepen</a></p>
 
 <h2 id="inline-elements">Inline Elements</h2>
-<pre class="highlight html"><code><span class="nt">&lt;p&gt;</span>
+<pre class="highlight html"><code><span class="c">&lt;!--
+  The strong and em tags will be in a line
+  with the plain text inside this paragraph tag
+--&gt;</span>
+<span class="nt">&lt;p&gt;</span>
   <span class="nt">&lt;strong&gt;</span>This strong text<span class="nt">&lt;/strong&gt;</span>
   is beside this normal text
   <span class="nt">&lt;em&gt;</span>and beside this emphasized text<span class="nt">&lt;/em&gt;</span>
@@ -382,7 +404,7 @@ Don&rsquo;t leave spaces on either side of the <code class="prettyprint">=</code
 <span class="c">&lt;!-- Example 2 --&gt;</span>
 <span class="nt">&lt;img</span> <span class="na">class=</span><span class="s">"placeholder"</span> <span class="na">src=</span><span class="s">"http://placehold.it/150x150"</span> <span class="na">alt=</span><span class="s">"First image"</span><span class="nt">&gt;</span>
 </code></pre>
-<p><strong>Attributes</strong> are always defined in the opening tag, and are an example of what we call <strong>key/value pairs</strong>.</p>
+<p><strong>Attributes</strong> are defined in the opening tag (as opposed to the closing tag), and are an example of what we call <strong>key/value pairs</strong>.</p>
 
 <p>In Example 1 to the right, the <code class="prettyprint">p</code> element has <strong>two attributes</strong>, each <strong>paired</strong> with a value.</p>
 
