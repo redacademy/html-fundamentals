@@ -32,6 +32,12 @@ project-folder
 <!DOCTYPE html>
 <html>
   <head>
+    <!-- This is required on all sites! -->
+    <meta charset="utf-8">
+
+    <!-- The title appears in the browser tab -->
+    <title>Aloha Apparel</title>
+
     <!-- Linking CSS -->
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
@@ -62,6 +68,9 @@ project-folder
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <title>Aloha Apparel</title>
+
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
@@ -100,6 +109,9 @@ project-folder
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8">
+    <title>Aloha Apparel</title>
+
     <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
 
