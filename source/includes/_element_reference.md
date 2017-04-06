@@ -10,6 +10,7 @@
 <h5>Smaller than h4</h5>
 <h6>Smaller than h5</h6>
 <p>This is where we place regular text</p>
+<p>We can have text that contains a <a href="https://google.ca">link</a></p>
 <p>One word will be <strong>bold</strong></p>
 <p>One word can be <span>styled</span></p>
 <p>This will be on <br> 2 lines</p>
@@ -24,6 +25,7 @@
 |Heading 5|`<h5>Smaller than h4</h5>`|Block|False|
 |Heading 6|`<h6>Smaller than h5</h6>`|Block|False|
 |Paragraph|`<p>This is where we place regular text</p>`|Block|False|
+|Anchor (Link)|`<a href="https://google.ca">Go to Google</a>`|Inline|False|
 |Strong|`<p>One word will be <strong>bold</strong></p>`|Inline|False|
 |Emphasis|`<p>One word will be <em>emphasized</em></p>`|Inline|False|
 |Span|`<p>One word can be <span>styled</span></p>`|Inline|False|
